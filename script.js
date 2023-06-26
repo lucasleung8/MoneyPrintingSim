@@ -420,6 +420,7 @@ function setup() {
 function draw() {
   background(bgColor);
   fill(achievementColor);
-  ellipse(mouseX, mouseY, 25, 25);
+  image($50BankNote, mouseX, mouseY);
+  //ellipse(mouseX, mouseY, 30, 30);
   print("+" + millis());
 }
