@@ -45,15 +45,6 @@ Some tips that will help you throughout the game.
 	</tr>
 </table>
 
-Conclusion
-----------
-
-I had a fun time working on this project but I do not plan to continue development on it.
-
-So if you find any bugs or have other ideas, feel free to contribute!
-
-Recognition to resources located in `resources/credits.py`
-
 Cheats
 ----
 Press u to get unlimited money
