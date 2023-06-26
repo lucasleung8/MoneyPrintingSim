@@ -5,7 +5,7 @@
 
 //-----------------------Setup-----------------------//
 let startTime = Date.now();
-const bgColor = 230;
+const bgColor = 235;
 const windowWidth = 1280;
 const windowHeight = 720;
 let clickTextList = [];
