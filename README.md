@@ -4,7 +4,7 @@ An incremental game similar to Cookie Clicker, but printing money instead of coo
 
 The Idea
 --------
-While being inspired to create an RPG game, I decided to use similar concepts found in other popular games such as Pokemon and The Legend of Zelda to create "The Third Element".
+While being inspired to create an incremental/idle game, I decided to use similar concepts found in other popular games such as Cookie Clicker, Clicker Heroes, AdVenture Capitalist, Tap Titans, etc., to create "Money Printing Sim".
 
 Overview
 --------
@@ -13,9 +13,9 @@ The Third Element is a small scale RPG game written in Python3 for the ICS3U fin
 
 ![logo](https://raw.githubusercontent.com/paulkr/The-Third-Element/master/the-last-element-thumbnail.png)
 
-Setup
+How to Play
 -----
-Run the `index.html` file.
+Go to the GitHub pages link listed here
 
 Cheats / Hints
 --------------
