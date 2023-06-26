@@ -1,17 +1,11 @@
 # MoneyPrintingSim
-An incremental game similar to Cookie Clicker, but printing money instead of cookies. This was originally coded in a Python version of p5js on Replit, that our teacher provided for the class. Having finished early, I am now porting it to real p5js (this repo) as a personal project.
+Money Printing Sim is a small scale incremental game written in p5js similar to Cookie Clicker, but printing money instead of cookies. This was originally coded in a Python version of p5js on Replit, that our teacher provided for the class. Having finished early, I am now porting it to real p5js (this repo) as a personal project.
+WYour goal is to make as much money as possible, along the way you will collect upgrades, earn achievements, and more.
 
 
-The Idea
+Idea
 --------
 While being inspired to create an incremental/idle game, I decided to use similar concepts found in other popular games such as Cookie Clicker, Clicker Heroes, AdVenture Capitalist, Tap Titans, etc., to create "Money Printing Sim".
-
-Overview
---------
-
-The Third Element is a small scale RPG game written in Python3 for the ICS3U final project. When playing this game, you take on the role of the character Sylon, the last remaining wizard in the land of Oslax. Your goal is to collect all the 3 gems (earth, water and fire) to restore the fate of the people of Oslax. Along the way you will collect items, earn money and fight many creatures.
-
-![logo](https://raw.githubusercontent.com/paulkr/The-Third-Element/master/the-last-element-thumbnail.png)
 
 How to Play
 -----
