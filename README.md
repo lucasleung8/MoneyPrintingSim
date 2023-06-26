@@ -36,10 +36,6 @@ Some tips that will help you throughout the game.
 		<td>When fighting the boss, ensure that you have close to or full health.</td>
 	</tr>
 	<tr>
-		<td>Max health</td>
-		<td>Visit the Grand Church of Oslax to pray and restore your health.</td>
-	</tr>
-	<tr>
 		<td>Rewards</td>
 		<td>If you are in need of health or money urgently, visit Blackbeard's Castle.</td>
 	</tr>
