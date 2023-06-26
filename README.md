@@ -15,7 +15,7 @@ The Third Element is a small scale RPG game written in Python3 for the ICS3U fin
 
 How to Play
 -----
-Go to the GitHub pages link listed here
+Go to the GitHub pages link listed in the repo description (https://mrworldwide1.github.io/MoneyPrintingSim/)
 
 Cheats / Hints
 --------------
