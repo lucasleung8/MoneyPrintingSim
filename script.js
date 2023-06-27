@@ -123,7 +123,7 @@ function preload() {
   arrowKeys = loadImage('assets/arrowKeys.png');
   cursor = loadImage('assets/cursor.png');
   moneyIcon = loadImage('assets/moneyStack.png');
-  printer = loadImage('assets/printer.png');
+  printer1 = loadImage('assets/printer.png');
   printer2 = loadImage('assets/printer2.png');
   printer3 = loadImage('assets/printer3.png');
   $5BankNote = loadImage('assets/$5.png');
@@ -161,9 +161,9 @@ const upgrades = {
 
 // Load save state, i.e. saved gameplay data from localStorage
 let money = 0;
-let moneyPerSecond = 1;
+let MpS = 1;
 let moneyPerPrint = 1;
-let currentPrinter = printer;
+let currentPrinter = printer1;
 let printDelay = 0;
 let currentBankNote = $5BankNote;
 let bankNoteSpeed = 10;
@@ -190,10 +190,10 @@ function achievementFunction(){
   for (let i = 0; i < achievementNotificationList.length; i++) {
     let achievement = achievementNotificationList[i];
     achievement.display();
-    achievement.move()
+    achievement.move();
     // remove popup when it goes below screen
     if (achievement.remove()){
-      achievementNotificationList.splice(i, 1)
+      achievementNotificationList.splice(i, 1);
     }
 }
 }
@@ -386,19 +386,71 @@ function titleScreenButtons() {
 }
 
 // Perform money earning calculation and increment money
-function moneyPerSecond(){
+function MpSCalc(){
   if (storedMillis + 100 <= millis()){
-    money += moneyPerSecond / 10;
+    money += MpS / 10;
     storedMillis = millis();
   }
-  // Draw the MpS counter
+  // Draw the money per second counter
   fill(MpSColor);
   textSize(MpSSize);
   textFont(moneyCounterFont);
-  text("Money per second: $" + round(money, 5), MpSPosX, MpSPosY);
+  text("Money per second: $" + MpS, MpSPosX, MpSPosY);
 }
 
+// In-game text displaying total amount of money earned
+function moneyCounter(){
+  fill(moneyCounterColor);
+  textSize(moneyCounterSize);
+  textFont(moneyCounterFont);
+  text("$" + round(money, 5), moneyCounterPosX, moneyCounterPosY);
+}
 
+// Prints money sprite from printer which moves towards top of screen
+function printBankNote(){
+  bankNoteList.push(new bankNote());
+  // Increment amount of prints to show on Stats screen
+  totalPrints += 1;
+}
+
+// Printer sprite which prints banknotes out of it when left clicked or spacebar pressed
+function printer(){
+  tint(255, printerAlpha);
+  image(currentPrinter, printerPosX, printerPosY, printerWidth, printerHeight);
+
+  //Return if mouse collides with printer
+  if ((dist(mouseX, mouseY, printerPosX, printerPosY)) < printerMouseCollideDist){
+    printerMouseCollide = true;
+  } else {
+    printerMouseCollide = false;
+  }
+
+  // Fade animtion when hovering over printer with mouse
+  if (printerMouseCollide && printerAlpha > printerMinFade){
+    printerAlpha -= printerFadeAnimSpeed;
+  } else if (printerMouseCollide = false && printerAlpha < printerMaxFade){
+    printerAlpha += printerFadeAnimSpeed;
+  }
+
+  // Animate size of printer when clicked or spacebar pressed
+  if (((mouseIsPressed && mouseButton == LEFT && printerMouseCollide) || keyIsDown(32)) && (printerWidth >= printerMinWidth) && (printerHeight >= printerMinHeight)){
+    printerWidth -= printerSizeAnimSpeed;
+    printerHeight -= printerSizeAnimSpeed;
+  } else if ((mouseIsPressed == false || printerMouseCollide == false) && printerWidth <= printerMaxWidth && printerHeight <= printerMaxHeight){
+    printerWidth += printerSizeAnimSpeed;
+    printerHeight += printerSizeAnimSpeed;
+  }
+
+  // Move/display each click text and remove when max height reached
+  for (let i = 0; i < clickTextList.length; i++) {
+    let text = clickTextList[i];
+    text.move();
+    text.display();
+    if (text.maxHeightReached()){
+      clickTextList.splice(i, 1);
+    }
+}
+}
 
 //-----------------------Classes-----------------------//
 
