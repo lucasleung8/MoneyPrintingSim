@@ -236,7 +236,6 @@ function playButton() {
       exitButtonAlpha += buttonAlphaSpeed;
     }
   }
-
 }
 
 function aboutButton() {
