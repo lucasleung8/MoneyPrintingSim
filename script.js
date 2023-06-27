@@ -309,12 +309,56 @@ function exitButton() {
   }
 }
 
+
+// Contains all the buttons on the title screen, functionality for selecting the buttons, and changing game state accordingly
 function titleScreenButtons() {
   playButton();
   aboutButton();
   exitButton();
+
+  // Ensure menu selection with arrow keys won't skip to first or last button
+  if (keyIsPressed == false) {
+    titleScreenButtonsLocked = false;
+  }
+
+  // Change menu button selection via arrow keys - only once each time up/down arrow is released
+  if (titleScreenButtonsLocked == false) {
+    if (keyIsDown(UP_ARROW) && selectedTitleScreenButton != 0) {
+      selectedTitleScreenButton -= 1;
+      titleScreenButtonsLocked = true;
+    } else if (keyIsDown(DOWN_ARROW) && selectedTitleScreenButton != 2) {
+      selectedTitleScreenButton += 1;
+      titleScreenButtonsLocked = true;
+    }
+  }
+
+  // Hovering mouse over title screen buttons highlights them
+  if (mouseTouchingPlayButton()) {
+    selectedTitleScreenButton = 0;
+  } else if (mouseTouchingAboutButton()){
+    selectedTitleScreenButton = 1;
+  } else if (mouseTouchingExitButton()){
+    selectedGameplayButton = 2;
+  }
+
+
+
 }
 
+// Detect mouse collision with Play button
+function mouseTouchingPlayButton() {
+  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 1.9) < titleScreenButtonMouseDist;
+}
+
+// Detect mouse collision with About button
+function mouseTouchingAboutButton(){
+  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 2.5) < titleScreenButtonMouseDist;
+}
+
+// Detect mouse collision with Exit button
+function mouseTouchingExitButton(){
+  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 3.1) < titleScreenButtonMouseDist;
+}
 //-----------------------Classes-----------------------//
 
 // Text showing money earned that pops up from the cursor when bank note reaches the top
@@ -407,7 +451,7 @@ class achievementNotification {
 }
 
 
-//-----------------------Setup() Function-----------------------//
+//-----------------------Setup Function-----------------------//
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(bgColor);
