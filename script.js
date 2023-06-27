@@ -168,6 +168,7 @@ let printDelay = 0;
 let currentBankNote = $5BankNote;
 let bankNoteSpeed = 10;
 let totalPrints = 0;
+let moneyIncrease = 1;
 let unlockedAchievements = [];
 let unlockedUpgrades = [];
 
@@ -388,7 +389,8 @@ function titleScreenButtons() {
 // Perform money earning calculation and increment money
 function MoneyPerSecondCalc(){
   if (storedMillis + 100 <= millis()){
-    money += MpS / 10;
+    let moneyIncrease = MpS / 10;
+    money += moneyIncrease;
     storedMillis = millis();
   }
   // Draw the money per second counter
