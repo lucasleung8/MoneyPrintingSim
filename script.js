@@ -174,9 +174,28 @@ let unlockedUpgrades = [];
 
 //-----------------------Custom Functions-----------------------//
 
-// Returns number of seconds since the program started
+// Returns number of seconds since program started
 function timeElapsed() {
   return Date.now() - startTime;
+}
+
+// Auto save game progress to localstorage at a set frequency
+// WIP: Reddit post
+//
+//
+
+//Determine when to unlock achievements and display them
+function achievementFunction(){
+  // move and display each achievement notification box popup
+  for (let i = 0; i < achievementNotificationList.length; i++) {
+    let achievement = achievementNotificationList[i];
+    achievement.display();
+    achievement.move()
+    // remove popup when it goes below screen
+    if (achievement.remove()){
+      achievementNotificationList.splice(i, 1)
+    }
+}
 }
 
 // Game title/text & logo displayed on title screen
@@ -187,7 +206,7 @@ function gameTitle() {
   textFont(gameTitleFont);
   text("Money Printing Sim", gameTitlePosX, gameTitlePosY);
   image(titleScreenMoney, gameTitlePosX, gameTitlePosY - 90, gameTitleSize + 30, gameTitleSize + 30);
-  strokeWeight(1)
+  strokeWeight(1);
 }
 
 // Show arrow key/enter menu controls in bottom left corner
