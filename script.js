@@ -309,6 +309,20 @@ function exitButton() {
   }
 }
 
+// Detect mouse collision with Play button
+function mouseTouchingPlayButton() {
+  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 1.9) < titleScreenButtonMouseDist;
+}
+
+// Detect mouse collision with About button
+function mouseTouchingAboutButton() {
+  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 2.5) < titleScreenButtonMouseDist;
+}
+
+// Detect mouse collision with Exit button
+function mouseTouchingExitButton() {
+  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 3.1) < titleScreenButtonMouseDist;
+}
 
 // Contains all the buttons on the title screen, functionality for selecting the buttons, and changing game state accordingly
 function titleScreenButtons() {
@@ -335,30 +349,24 @@ function titleScreenButtons() {
   // Hovering mouse over title screen buttons highlights them
   if (mouseTouchingPlayButton()) {
     selectedTitleScreenButton = 0;
-  } else if (mouseTouchingAboutButton()){
+  } else if (mouseTouchingAboutButton()) {
     selectedTitleScreenButton = 1;
-  } else if (mouseTouchingExitButton()){
+  } else if (mouseTouchingExitButton()) {
     selectedGameplayButton = 2;
   }
 
   // When a button is highlighted, pressing Enter or left clicking it switches screens accordingly
-  // if (keyIsPressed == true && keyCode == ENTER) || (mouseIsPressed == true)
+  if ((keyIsPressed && keyCode == ENTER) || (mouseIsPressed && mouseButton == LEFT && mouseTouchingPlayButton()) || (mouseIsPressed && mouseButton == LEFT && mouseTouchingAboutButton()) || (mouseIsPressed && mouseButton == LEFT && mouseTouchingExitButton())) {
+    if (selectedTitleScreenButton == 0) {
+      gameState = 1;
+    } else if (selectedTitleScreenButton == 1) {
+      gameState = 2;
+    } else if (selectedTitleScreenButton == 2) {
+      gameState = 3;
+    }
+  }
 }
 
-// Detect mouse collision with Play button
-function mouseTouchingPlayButton() {
-  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 1.9) < titleScreenButtonMouseDist;
-}
-
-// Detect mouse collision with About button
-function mouseTouchingAboutButton(){
-  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 2.5) < titleScreenButtonMouseDist;
-}
-
-// Detect mouse collision with Exit button
-function mouseTouchingExitButton(){
-  return dist(mouseX, mouseY, gameTitlePosX, gameTitlePosY * 3.1) < titleScreenButtonMouseDist;
-}
 //-----------------------Classes-----------------------//
 
 // Text showing money earned that pops up from the cursor when bank note reaches the top
@@ -465,6 +473,5 @@ function draw() {
   background(bgColor);
   fill(achievementColor);
   image($50BankNote, mouseX, mouseY);
-  //ellipse(mouseX, mouseY, 30, 30);
-  print(mouseIsPressed);
+  print(mouseX, mouseY);
 }
