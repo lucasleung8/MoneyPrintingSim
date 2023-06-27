@@ -386,7 +386,7 @@ function titleScreenButtons() {
 }
 
 // Perform money earning calculation and increment money
-function MpSCalc(){
+function MoneyPerSecondCalc(){
   if (storedMillis + 100 <= millis()){
     money += MpS / 10;
     storedMillis = millis();
