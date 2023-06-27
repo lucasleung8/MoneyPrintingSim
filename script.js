@@ -189,11 +189,10 @@ function timeElapsed() {
 function achievementFunction(){
   // move and display each achievement notification box popup
   for (let i = 0; i < achievementNotificationList.length; i++) {
-    let achievement = achievementNotificationList[i];
-    achievement.display();
-    achievement.move();
+    achievementNotificationList[i].display();
+    achievementNotificationList[i].move();
     // remove popup when it goes below screen
-    if (achievement.remove()){
+    if (achievementNotificationList[i].remove()){
       achievementNotificationList.splice(i, 1);
     }
 }
@@ -445,11 +444,21 @@ function printer(){
 
   // Move/display each click text and remove when max height reached
   for (let i = 0; i < clickTextList.length; i++) {
-    let text = clickTextList[i];
-    text.move();
-    text.display();
-    if (text.maxHeightReached()){
+    clickTextList[i].move();
+    clickTextList[i].display();
+    if (clickTextList[i].maxHeightReached()){
       clickTextList.splice(i, 1);
+    }
+}
+// Move and display each printed banknote
+  for (let i = 0; i < bankNoteList.length; i++) {
+    bankNoteList[i].move();
+    bankNoteList[i].display();
+    // remove bank note when target height reached and display popup text showing money earned
+    if (bankNote.maxHeightReached()){
+      money += moneyPerPrint;
+      bankNoteList.splice(i, 1);
+      clickTextList.push(new clickText());
     }
 }
 }
