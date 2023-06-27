@@ -395,7 +395,7 @@ function moneyPerSecond(){
   fill(MpSColor);
   textSize(MpSSize);
   textFont(moneyCounterFont);
-  text("Money per second:" + "$" + round(money, 5), MpSPosX, MpSPosY);
+  text("Money per second: $" + round(money, 5), MpSPosX, MpSPosY);
 }
 
 
