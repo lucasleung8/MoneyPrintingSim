@@ -25,7 +25,7 @@ let moneyIncrease;
 
 // Title screen menu buttons
 let selectedTitleScreenButton = 0;
-let selectedGameplayButton = 0;
+let selectedGameplayButton;
 let titleScreenButtonsLocked = false;
 const titleScreenButtonMouseDist = 100;
 
@@ -142,10 +142,10 @@ const achievements = {
   "3": "Humble beginnings", // print your first banknote
   "4": "Co-ordinated counterfeiting", // get $10/s
   "5": "Dedicated", // play game for at least 1 hour
-  "6": "30 second mark", // play game for at least 30 seconds
+  "6": "60 second mark", // play game for at least 60 seconds
   "7": "3 figures" // earn at least $100
 };
-const numAchievements = 7;
+const numAchievements = Object.keys(achievements).length;
 
 // All buyable upgrades - format is name:description
 const upgrades = {
@@ -187,7 +187,7 @@ function timeElapsed() {
 
 //Determine when to unlock achievements and display them
 function achievementFunction(){
-  // move and display each achievement notification box popup
+  // move and display each notification popup box
   for (let i = 0; i < achievementNotificationList.length; i++) {
     achievementNotificationList[i].display();
     achievementNotificationList[i].move();
@@ -196,17 +196,33 @@ function achievementFunction(){
       achievementNotificationList.splice(i, 1);
     }
 }
+
+  // Condition to unlock achievement 7
+  if (money >= 100 && !(unlockedAchievements.includes("7"))){
+    achievementNotificationList.push(new achievementNotification(achievements["7"]));
+    unlockedAchievements.push(achievements["7"]);
+  }
+
+  // Condition to unlock achievement 6
+  if (timeElapsed() >= 60 && !(unlockedAchievements.includes("6"))){
+    achievementNotificationList.push(new achievementNotification(achievements["6"]));
+    unlockedAchievements.push("6");
+  }
+
+  // Condition to unlock achievement 5
+  if (timeElapsed() >= 3600 && !(unlockedAchievements.includes("5"))){
+    achievementNotificationList.push(new achievementNotification(achievements["5"]));
+    unlockedAchievements.push("5");
+  }
 }
 
 // Game title/text & logo displayed on title screen
 function gameTitle() {
-  noStroke();
   fill(gameTitleColor);
   textSize(gameTitleSize);
   textFont(gameTitleFont);
   text("Money Printing Sim", gameTitlePosX, gameTitlePosY);
   image(titleScreenMoney, gameTitlePosX, gameTitlePosY - 90, gameTitleSize + 30, gameTitleSize + 30);
-  strokeWeight(1);
 }
 
 // Show arrow key/enter menu controls in bottom left corner
@@ -370,7 +386,7 @@ function titleScreenButtons() {
   } else if (mouseTouchingAboutButton()) {
     selectedTitleScreenButton = 1;
   } else if (mouseTouchingExitButton()) {
-    selectedGameplayButton = 2;
+    selectedTitleScreenButton = 2;
   }
 
   // When a button is highlighted, pressing Enter or left clicking it switches screens accordingly
@@ -455,12 +471,87 @@ function printer(){
     bankNoteList[i].move();
     bankNoteList[i].display();
     // remove bank note when target height reached and display popup text showing money earned
-    if (bankNote.maxHeightReached()){
+    if (bankNoteList[i].maxHeightReached()){
       money += moneyPerPrint;
       bankNoteList.splice(i, 1);
       clickTextList.push(new clickText());
     }
 }
+}
+
+// In-game upgrade button, WIP
+function upgradeButton(){
+  fill(252, 140, 3, upgradeButtonAlpha);
+  rect(windowWidth/1.06, windowHeight/2, upgradeButtonWidth, windowHeight/7, 15);
+  fill(blackColor);
+  stroke(255);
+  textSize(gameplayButtonFontSize);
+  textFont(mediumFont);
+  text("Upgrade [U]", windowWidth/1.06, windowHeight/2);
+  strokeWeight(4);
+}
+
+// Draw in-game Stats button
+function statsButton(){
+  fill(186, 3, 252, statsButtonAlpha);
+  rect(windowWidth/1.06, windowHeight/1.5, statsButtonWidth, windowHeight/7, 15);
+  fill(blackColor);
+  strokeWeight(3);
+  stroke(255);
+  textSize(gameplayButtonFontSize);
+  textFont(mediumFont);
+  text("Stats [S]", windowWidth/1.06, windowHeight/1.5);
+  strokeWeight(4);
+}
+
+// Detect mouse collision with Upgrade button
+function mouseTouchingUpgradeButton(){
+  return (dist(mouseX, mouseY, windowWidth/1.06, windowHeight/2) < gameplayButtonMouseDist);
+}
+
+// Detect mouse collision with Stats button
+function mouseTouchingStatsButton(){
+  return (dist(mouseX, mouseY, windowWidth/1.06, windowHeight/1.5) < gameplayButtonMouseDist);
+}
+
+// Contains all buttons that appear in-game. Displays upgrade/stats buttons, animates them, change game states
+function gameplayButtons(){
+  upgradeButton();
+  statsButton();
+
+  // Hovering mouse over in-game menu buttons and left clicking chooses them
+  if (mouseTouchingUpgradeButton()){
+    selectedGameplayButton = "Upgrade"; //WIP
+  } else if (mouseTouchingStatsButton()){
+    selectedGameplayButton = "Stats";
+    if (mouseIsPressed && mouseButton == LEFT){
+      gameState = 4;
+    }
+  }
+
+  // Mouse hover fade animation for stats/upgrade, increases alpha of other buttons
+  if (selectedGameplayButton == "Upgrade"){
+    if (upgradeButtonAlpha > minGameplayButtonAlpha){
+      upgradeButtonAlpha -= buttonAlphaSpeed;
+    }
+    if (statsButtonAlpha < 255){
+      statsButtonAlpha += buttonAlphaSpeed;
+    }
+  } else if (selectedGameplayButton == "Stats"){
+    if (statsButtonAlpha > minGameplayButtonAlpha){
+      statsButtonAlpha -= buttonAlphaSpeed;
+    }
+    if (upgradeButtonAlpha < 255){
+      upgradeButtonAlpha += buttonAlphaSpeed;
+    }
+  }
+
+  // Keyboard shortcuts to open the Upgrade and Stats screens
+  if (keyIsPressed && (key == "u" || key == "U")){
+
+  } else if (keyIsPressed && (key == "s" || key == "S")){
+    gameState = 4;
+  }
 }
 
 //-----------------------Classes-----------------------//
@@ -569,5 +660,5 @@ function draw() {
   background(bgColor);
   fill(achievementColor);
   image($50BankNote, mouseX, mouseY);
-  print(mouseX, mouseY);
+  print(numAchievements);
 }
