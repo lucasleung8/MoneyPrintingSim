@@ -21,6 +21,7 @@ let gameTitleSize = (windowWidth + windowHeight) / 25;
 let gameTitlePosX = windowWidth / 2;
 let gameTitlePosY = windowHeight / 3.5;
 let gameTitleColor = 0;
+let moneyIncrease;
 
 // Title screen menu buttons
 let selectedTitleScreenButton = 0;
@@ -99,7 +100,7 @@ let gameTitleFont;
 let mediumFont;
 let regularFont;
 let titleScreenMoney;
-let printer;
+let printer1;
 let printer2;
 let printer3;
 let arrowKeys;
@@ -168,7 +169,6 @@ let printDelay = 0;
 let currentBankNote = $5BankNote;
 let bankNoteSpeed = 10;
 let totalPrints = 0;
-let moneyIncrease = 1;
 let unlockedAchievements = [];
 let unlockedUpgrades = [];
 
