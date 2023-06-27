@@ -389,7 +389,7 @@ function titleScreenButtons() {
 // Perform money earning calculation and increment money
 function MoneyPerSecondCalc(){
   if (storedMillis + 100 <= millis()){
-    let moneyIncrease = MpS / 10;
+    moneyIncrease = MpS / 10;
     money += moneyIncrease;
     storedMillis = millis();
   }
