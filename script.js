@@ -385,6 +385,21 @@ function titleScreenButtons() {
   }
 }
 
+// Perform money earning calculation and increment money
+function moneyPerSecond(){
+  if (storedMillis + 100 <= millis()){
+    money += moneyPerSecond / 10;
+    storedMillis = millis();
+  }
+  // Draw the MpS counter
+  fill(MpSColor);
+  textSize(MpSSize);
+  textFont(moneyCounterFont);
+  text("$" + round(money, 5), MpSPosX, MpSPosY);
+}
+
+
+
 //-----------------------Classes-----------------------//
 
 // Text showing money earned that pops up from the cursor when bank note reaches the top
