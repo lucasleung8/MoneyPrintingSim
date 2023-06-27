@@ -341,8 +341,8 @@ function titleScreenButtons() {
     selectedGameplayButton = 2;
   }
 
-
-
+  // When a button is highlighted, pressing Enter or left clicking it switches screens accordingly
+  // if (keyIsPressed == true && keyCode == ENTER) || (mouseIsPressed == true)
 }
 
 // Detect mouse collision with Play button
@@ -466,5 +466,5 @@ function draw() {
   fill(achievementColor);
   image($50BankNote, mouseX, mouseY);
   //ellipse(mouseX, mouseY, 30, 30);
-  print("+" + millis());
+  print(mouseIsPressed);
 }
