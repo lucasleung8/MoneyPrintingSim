@@ -101,6 +101,7 @@ let gameTitleFont;
 let mediumFont;
 let regularFont;
 let titleScreenMoney;
+let currentPrinter;
 let printer1;
 let printer2;
 let printer3;
@@ -165,7 +166,6 @@ const upgrades = {
 let money = 0;
 let MpS = 1;
 let moneyPerPrint = 1;
-let currentPrinter = printer1;
 let printDelay = 0;
 let currentBankNote = $5BankNote;
 let bankNoteSpeed = 10;
@@ -433,6 +433,7 @@ function printBankNote(){
 
 // Printer sprite which prints banknotes out of it when left clicked or spacebar pressed
 function printer(){
+  currentPrinter = printer1;
   tint(255, printerAlpha);
   image(currentPrinter, printerPosX, printerPosY, printerWidth, printerHeight);
 
@@ -713,7 +714,7 @@ function setup() {
 function draw() {
   background(bgColor);
   achievementFunction();
-  print(numAchievements);
+  print(currentPrinter);
 
   // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
   if (gameState == 0){
