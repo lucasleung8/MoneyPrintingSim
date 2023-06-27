@@ -22,6 +22,7 @@ let gameTitlePosX = windowWidth / 2;
 let gameTitlePosY = windowHeight / 3.5;
 let gameTitleColor = 0;
 let moneyIncrease;
+let aboutTextPosY = windowHeight/2
 
 // Title screen menu buttons
 let selectedTitleScreenButton = 0;
@@ -645,6 +646,59 @@ class achievementNotification {
   }
 }
 
+//-----------------------Game States-----------------------//
+
+// Title screen with Play, About, and Exit buttons, num of achievements, and menu navigation help
+function titleScreen(){
+  gameTitle();
+  titleScreenButtons();
+  titleScreenInstructions();
+  // show copyright & num of unlocked achievements
+  textSize(gameTitleSize/4);
+  text("©Lucas Leung 2023", windowWidth - 100, windowHeight - 20);
+  textSize(gameTitleSize/3);
+  text("Achievements unlocked:" + unlockedAchievements.length + "out of" + numAchievements, windowWidth - 1050, windowHeight - 200);
+
+  // Clear all printer click tex to ensure they don't remain when game is replayed
+  for (let i = 0; i < clickTextList.length; i++){
+    clickTextList.splice(i, 1);
+  }
+}
+
+// Main gameplay screen that starts when Play button is selected from title screen
+function gameScreen(){
+  moneyPerSecond();
+  moneyCounter();
+  printer();
+  gameplayButtons();
+  // autoSave();
+
+  // Pressing Esc returns to title screen
+  if (keyIsPressed && keyCode == 27){
+    gameState = 0;
+  }
+}
+
+// Screen that shows extra info about the game when About button selected from the title screen
+function aboutScreen(){
+  noStroke();
+  textSize(32);
+  textFont(regularFont);
+  text("Money Printing Sim is my first ever attempt at creating a somewhat polished game. As I've always been drawn to games that involve calculations, data, stats, etc., I was inspired by incremental games the likes of Cookie Clicker and Clicker Heroes.", 650, 150, windowWidth, windowHeight);
+  //WIP display each string from list as a new line on screen
+
+
+
+
+  // Pressing Esc key returns to title screen
+  if (keyIsPressed && keyCode == 27){
+    gameState = 0;
+  }
+}
+
+// List icon and text showing gameplay statistics, appearing when Stats button is selected
+function statsScreen(){
+}
 
 //-----------------------Setup Function-----------------------//
 function setup() {
@@ -658,7 +712,23 @@ function setup() {
 //-----------------------Main Sketch-----------------------//
 function draw() {
   background(bgColor);
-  fill(achievementColor);
-  image($50BankNote, mouseX, mouseY);
+  achievementFunction();
   print(numAchievements);
+
+  // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
+  if (gameState == 0){
+    titleScreen();
+    // Condition to unlock achievement 1 -WIP
+
+  } else if (gameState == 1){
+    gameScreen();
+  } else if (gameState == 2){
+    aboutScreen();
+    // Condition to unlock achievement 2 WIP
+
+  } else if (gameState == 3){
+    remove();
+  } else if (gameState == 4){
+    statsScreen();
+  }
 }
