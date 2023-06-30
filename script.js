@@ -719,7 +719,7 @@ function draw() {
   // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
   if (gameState == 0){
     titleScreen();
-    // Condition to unlock achievement 1 -WIP
+    // Condition to unlock achievement 1 WIP
 
   } else if (gameState == 1){
     gameScreen();
