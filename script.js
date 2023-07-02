@@ -22,7 +22,7 @@ let gameTitlePosX = windowWidth / 2;
 let gameTitlePosY = windowHeight / 3.5;
 let gameTitleColor = 0;
 let moneyIncrease;
-let aboutTextPosY = windowHeight/2
+let aboutTextPosY = windowHeight / 2
 
 // Title screen menu buttons
 let selectedTitleScreenButton = 0;
@@ -187,31 +187,31 @@ function timeElapsed() {
 //
 
 //Determine when to unlock achievements and display them
-function achievementFunction(){
+function achievementFunction() {
   // move and display each notification popup box
   for (let i = 0; i < achievementNotificationList.length; i++) {
     achievementNotificationList[i].display();
     achievementNotificationList[i].move();
     // remove popup when it goes below screen
-    if (achievementNotificationList[i].remove()){
+    if (achievementNotificationList[i].remove()) {
       achievementNotificationList.splice(i, 1);
     }
-}
+  }
 
   // Condition to unlock achievement 7
-  if (money >= 100 && !(unlockedAchievements.includes("7"))){
+  if (money >= 100 && !(unlockedAchievements.includes("7"))) {
     achievementNotificationList.push(new achievementNotification(achievements["7"]));
     unlockedAchievements.push(achievements["7"]);
   }
 
   // Condition to unlock achievement 6
-  if (timeElapsed() >= 60 && !(unlockedAchievements.includes("6"))){
+  if (timeElapsed() >= 60 && !(unlockedAchievements.includes("6"))) {
     achievementNotificationList.push(new achievementNotification(achievements["6"]));
     unlockedAchievements.push("6");
   }
 
   // Condition to unlock achievement 5
-  if (timeElapsed() >= 3600 && !(unlockedAchievements.includes("5"))){
+  if (timeElapsed() >= 3600 && !(unlockedAchievements.includes("5"))) {
     achievementNotificationList.push(new achievementNotification(achievements["5"]));
     unlockedAchievements.push("5");
   }
@@ -403,8 +403,8 @@ function titleScreenButtons() {
 }
 
 // Perform money earning calculation and increment money
-function moneyPerSecond(){
-  if (storedMillis + 100 <= millis()){
+function moneyPerSecond() {
+  if (storedMillis + 100 <= millis()) {
     moneyIncrease = MpS / 10;
     money += moneyIncrease;
     storedMillis = millis();
@@ -417,7 +417,7 @@ function moneyPerSecond(){
 }
 
 // In-game text displaying total amount of money earned
-function moneyCounter(){
+function moneyCounter() {
   fill(moneyCounterColor);
   textSize(moneyCounterSize);
   textFont(moneyCounterFont);
@@ -425,37 +425,37 @@ function moneyCounter(){
 }
 
 // Prints money sprite from printer which moves towards top of screen
-function printBankNote(){
+function printBankNote() {
   bankNoteList.push(new bankNote());
   // Increment amount of prints to show on Stats screen
   totalPrints += 1;
 }
 
 // Printer sprite which prints banknotes out of it when left clicked or spacebar pressed
-function printer(){
+function printer() {
   currentPrinter = printer1;
   tint(255, printerAlpha);
   image(currentPrinter, printerPosX, printerPosY, printerWidth, printerHeight);
 
   //Return if mouse collides with printer
-  if ((dist(mouseX, mouseY, printerPosX, printerPosY)) < printerMouseCollideDist){
+  if ((dist(mouseX, mouseY, printerPosX, printerPosY)) < printerMouseCollideDist) {
     printerMouseCollide = true;
   } else {
     printerMouseCollide = false;
   }
 
   // Fade animtion when hovering over printer with mouse
-  if (printerMouseCollide && printerAlpha > printerMinFade){
+  if (printerMouseCollide && printerAlpha > printerMinFade) {
     printerAlpha -= printerFadeAnimSpeed;
-  } else if (printerMouseCollide = false && printerAlpha < printerMaxFade){
+  } else if (printerMouseCollide = false && printerAlpha < printerMaxFade) {
     printerAlpha += printerFadeAnimSpeed;
   }
 
   // Animate size of printer when clicked or spacebar pressed
-  if (((mouseIsPressed && mouseButton == LEFT && printerMouseCollide) || keyIsDown(32)) && (printerWidth >= printerMinWidth) && (printerHeight >= printerMinHeight)){
+  if (((mouseIsPressed && mouseButton == LEFT && printerMouseCollide) || keyIsDown(32)) && (printerWidth >= printerMinWidth) && (printerHeight >= printerMinHeight)) {
     printerWidth -= printerSizeAnimSpeed;
     printerHeight -= printerSizeAnimSpeed;
-  } else if ((mouseIsPressed == false || printerMouseCollide == false) && printerWidth <= printerMaxWidth && printerHeight <= printerMaxHeight){
+  } else if ((mouseIsPressed == false || printerMouseCollide == false) && printerWidth <= printerMaxWidth && printerHeight <= printerMaxHeight) {
     printerWidth += printerSizeAnimSpeed;
     printerHeight += printerSizeAnimSpeed;
   }
@@ -464,94 +464,94 @@ function printer(){
   for (let i = 0; i < clickTextList.length; i++) {
     clickTextList[i].move();
     clickTextList[i].display();
-    if (clickTextList[i].maxHeightReached()){
+    if (clickTextList[i].maxHeightReached()) {
       clickTextList.splice(i, 1);
     }
-}
-// Move and display each printed banknote
+  }
+  // Move and display each printed banknote
   for (let i = 0; i < bankNoteList.length; i++) {
     bankNoteList[i].move();
     bankNoteList[i].display();
     // remove bank note when target height reached and display popup text showing money earned
-    if (bankNoteList[i].maxHeightReached()){
+    if (bankNoteList[i].maxHeightReached()) {
       money += moneyPerPrint;
       bankNoteList.splice(i, 1);
       clickTextList.push(new clickText());
     }
-}
+  }
 }
 
 // In-game upgrade button, WIP
-function upgradeButton(){
+function upgradeButton() {
   fill(252, 140, 3, upgradeButtonAlpha);
-  rect(windowWidth/1.06, windowHeight/2, upgradeButtonWidth, windowHeight/7, 15);
+  rect(windowWidth / 1.06, windowHeight / 2, upgradeButtonWidth, windowHeight / 7, 15);
   fill(blackColor);
   stroke(255);
   textSize(gameplayButtonFontSize);
   textFont(mediumFont);
-  text("Upgrade [U]", windowWidth/1.06, windowHeight/2);
+  text("Upgrade [U]", windowWidth / 1.06, windowHeight / 2);
   strokeWeight(4);
 }
 
 // Draw in-game Stats button
-function statsButton(){
+function statsButton() {
   fill(186, 3, 252, statsButtonAlpha);
-  rect(windowWidth/1.06, windowHeight/1.5, statsButtonWidth, windowHeight/7, 15);
+  rect(windowWidth / 1.06, windowHeight / 1.5, statsButtonWidth, windowHeight / 7, 15);
   fill(blackColor);
   strokeWeight(3);
   stroke(255);
   textSize(gameplayButtonFontSize);
   textFont(mediumFont);
-  text("Stats [S]", windowWidth/1.06, windowHeight/1.5);
+  text("Stats [S]", windowWidth / 1.06, windowHeight / 1.5);
   strokeWeight(4);
 }
 
 // Detect mouse collision with Upgrade button
-function mouseTouchingUpgradeButton(){
-  return (dist(mouseX, mouseY, windowWidth/1.06, windowHeight/2) < gameplayButtonMouseDist);
+function mouseTouchingUpgradeButton() {
+  return (dist(mouseX, mouseY, windowWidth / 1.06, windowHeight / 2) < gameplayButtonMouseDist);
 }
 
 // Detect mouse collision with Stats button
-function mouseTouchingStatsButton(){
-  return (dist(mouseX, mouseY, windowWidth/1.06, windowHeight/1.5) < gameplayButtonMouseDist);
+function mouseTouchingStatsButton() {
+  return (dist(mouseX, mouseY, windowWidth / 1.06, windowHeight / 1.5) < gameplayButtonMouseDist);
 }
 
 // Contains all buttons that appear in-game. Displays upgrade/stats buttons, animates them, change game states
-function gameplayButtons(){
+function gameplayButtons() {
   upgradeButton();
   statsButton();
 
   // Hovering mouse over in-game menu buttons and left clicking chooses them
-  if (mouseTouchingUpgradeButton()){
+  if (mouseTouchingUpgradeButton()) {
     selectedGameplayButton = "Upgrade"; //WIP
-  } else if (mouseTouchingStatsButton()){
+  } else if (mouseTouchingStatsButton()) {
     selectedGameplayButton = "Stats";
-    if (mouseIsPressed && mouseButton == LEFT){
+    if (mouseIsPressed && mouseButton == LEFT) {
       gameState = 4;
     }
   }
 
   // Mouse hover fade animation for stats/upgrade, increases alpha of other buttons
-  if (selectedGameplayButton == "Upgrade"){
-    if (upgradeButtonAlpha > minGameplayButtonAlpha){
+  if (selectedGameplayButton == "Upgrade") {
+    if (upgradeButtonAlpha > minGameplayButtonAlpha) {
       upgradeButtonAlpha -= buttonAlphaSpeed;
     }
-    if (statsButtonAlpha < 255){
+    if (statsButtonAlpha < 255) {
       statsButtonAlpha += buttonAlphaSpeed;
     }
-  } else if (selectedGameplayButton == "Stats"){
-    if (statsButtonAlpha > minGameplayButtonAlpha){
+  } else if (selectedGameplayButton == "Stats") {
+    if (statsButtonAlpha > minGameplayButtonAlpha) {
       statsButtonAlpha -= buttonAlphaSpeed;
     }
-    if (upgradeButtonAlpha < 255){
+    if (upgradeButtonAlpha < 255) {
       upgradeButtonAlpha += buttonAlphaSpeed;
     }
   }
 
   // Keyboard shortcuts to open the Upgrade and Stats screens
-  if (keyIsPressed && (key == "u" || key == "U")){
+  if (keyIsPressed && (key == "u" || key == "U")) {
 
-  } else if (keyIsPressed && (key == "s" || key == "S")){
+  } else if (keyIsPressed && (key == "s" || key == "S")) {
     gameState = 4;
   }
 }
@@ -650,24 +650,24 @@ class achievementNotification {
 //-----------------------Game States-----------------------//
 
 // Title screen with Play, About, and Exit buttons, num of achievements, and menu navigation help
-function titleScreen(){
+function titleScreen() {
   gameTitle();
   titleScreenButtons();
   titleScreenInstructions();
   // show copyright & num of unlocked achievements
-  textSize(gameTitleSize/4);
+  textSize(gameTitleSize / 4);
   text("©Lucas Leung 2023", windowWidth - 100, windowHeight - 20);
-  textSize(gameTitleSize/3);
+  textSize(gameTitleSize / 3);
   text("Achievements unlocked:" + unlockedAchievements.length + "out of" + numAchievements, windowWidth - 1050, windowHeight - 200);
 
   // Clear all printer click tex to ensure they don't remain when game is replayed
-  for (let i = 0; i < clickTextList.length; i++){
+  for (let i = 0; i < clickTextList.length; i++) {
     clickTextList.splice(i, 1);
   }
 }
 
 // Main gameplay screen that starts when Play button is selected from title screen
-function gameScreen(){
+function gameScreen() {
   moneyPerSecond();
   moneyCounter();
   printer();
@@ -675,13 +675,13 @@ function gameScreen(){
   // autoSave();
 
   // Pressing Esc returns to title screen
-  if (keyIsPressed && keyCode == 27){
+  if (keyIsPressed && keyCode == 27) {
     gameState = 0;
   }
 }
 
 // Screen that shows extra info about the game when About button selected from the title screen
-function aboutScreen(){
+function aboutScreen() {
   noStroke();
   textSize(32);
   textFont(regularFont);
@@ -692,13 +692,13 @@ function aboutScreen(){
 
 
   // Pressing Esc key returns to title screen
-  if (keyIsPressed && keyCode == 27){
+  if (keyIsPressed && keyCode == 27) {
     gameState = 0;
   }
 }
 
 // List icon and text showing gameplay statistics, appearing when Stats button is selected
-function statsScreen(){
+function statsScreen() {
 }
 
 //-----------------------Setup Function-----------------------//
@@ -717,19 +717,19 @@ function draw() {
   print(currentPrinter);
 
   // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
-  if (gameState == 0){
+  if (gameState == 0) {
     titleScreen();
     // Condition to unlock achievement 1 WIP
 
-  } else if (gameState == 1){
+  } else if (gameState == 1) {
     gameScreen();
-  } else if (gameState == 2){
+  } else if (gameState == 2) {
     aboutScreen();
     // Condition to unlock achievement 2 WIP
 
-  } else if (gameState == 3){
+  } else if (gameState == 3) {
     remove();
-  } else if (gameState == 4){
+  } else if (gameState == 4) {
     statsScreen();
   }
 }
