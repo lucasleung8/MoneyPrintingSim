@@ -658,7 +658,7 @@ function titleScreen() {
   textSize(gameTitleSize / 4);
   text("©Lucas Leung 2023", windowWidth - 100, windowHeight - 20);
   textSize(gameTitleSize / 3);
-  text("Achievements unlocked:" + unlockedAchievements.length + "out of" + numAchievements, windowWidth - 1050, windowHeight - 200);
+  text("Achievements unlocked: " + unlockedAchievements.length + " out of " + numAchievements, windowWidth - 1050, windowHeight - 200);
 
   // Clear all printer click tex to ensure they don't remain when game is replayed
   for (let i = 0; i < clickTextList.length; i++) {
