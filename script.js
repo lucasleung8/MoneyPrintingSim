@@ -592,10 +592,11 @@ class bankNote {
     this.posY = printerPosY;
     this.width = printerWidth / 1.5;
     this.height = printerHeight;
+    this.currentBankNote = currentBankNote
   }
 
   display() {
-    image(currentBankNote, this.posX, this.posY, this.width, this.height);
+    image(this.currentBankNote, this.posX, this.posY, this.width, this.height);
   }
 
   move() {
@@ -682,14 +683,17 @@ function gameScreen() {
 
 // Screen that shows extra info about the game when About button selected from the title screen
 function aboutScreen() {
+  aboutTextPosY = windowHeight/2;
   noStroke();
   textSize(32);
   textFont(regularFont);
   text("Money Printing Sim is my first ever attempt at creating a somewhat polished game. As I've always been drawn to games that involve calculations, data, stats, etc., I was inspired by incremental games the likes of Cookie Clicker and Clicker Heroes.", 650, 150, windowWidth, windowHeight);
-  //WIP display each string from list as a new line on screen
-
-
-
+  for (let i = 0; i < aboutText.length; i++) {
+    text(aboutText[i], 650, aboutTextPosY, windowWidth-50, windowHeight-50);
+    aboutTextPosY += 50;
+  }
+  textSize(24);
+  text("Press Esc to return to title screen", 650, p.aboutTextPosY+50);
 
   // Pressing Esc key returns to title screen
   if (keyIsPressed && keyCode == 27) {
