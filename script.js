@@ -701,7 +701,7 @@ function aboutScreen() {
   }
 }
 
-// List icon and text showing gameplay statistics, appearing when Stats button is selected
+// WIP menu displaying gameplay statistics, appearing when Stats button is selected
 function statsScreen() {
 }
 
