@@ -168,7 +168,6 @@ let MpS = 1;
 let moneyPerPrint = 1;
 let printDelay = 0;
 let currentBankNote = $5BankNote;
-currentPrinter = printer1; 
 let bankNoteSpeed = 10;
 let totalPrints = 0;
 let unlockedAchievements = [];
@@ -434,6 +433,7 @@ function printBankNote() {
 
 // Printer sprite which prints banknotes out of it when left clicked or spacebar pressed
 function printer() {
+  currentPrinter = printer1; 
   tint(255, printerAlpha);
   image(currentPrinter, printerPosX, printerPosY, printerWidth, printerHeight);
 
