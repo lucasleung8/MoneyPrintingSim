@@ -724,16 +724,28 @@ function draw() {
   if (gameState == 0) {
     titleScreen();
     // Condition to unlock achievement 1 WIP
-
   } else if (gameState == 1) {
     gameScreen();
   } else if (gameState == 2) {
     aboutScreen();
     // Condition to unlock achievement 2 WIP
-
   } else if (gameState == 3) {
     remove();
   } else if (gameState == 4) {
     statsScreen();
+  }
+}
+
+// Print banknote when printer is left clicked
+function mouseClicked(){
+  if (printerMouseCollide){
+    printBankNote();
+  }
+}
+
+// Print banknote when spacebar pressed ingame
+function keyReleased(){
+  if (gameState == 1 && keyCode == 32){
+    printBankNote();
   }
 }
