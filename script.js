@@ -167,7 +167,6 @@ let money = 0;
 let MpS = 1;
 let moneyPerPrint = 1;
 let printDelay = 0;
-let currentBankNote = $5BankNote;
 let bankNoteSpeed = 10;
 let totalPrints = 0;
 let unlockedAchievements = [];
@@ -592,7 +591,8 @@ class bankNote {
     this.posY = printerPosY;
     this.width = printerWidth / 1.5;
     this.height = printerHeight;
-    this.currentBankNote = currentBankNote
+    this.currentBankNote = $5BankNote;
+
   }
 
   display() {
