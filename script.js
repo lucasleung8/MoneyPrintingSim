@@ -168,6 +168,7 @@ let MpS = 1;
 let moneyPerPrint = 1;
 let printDelay = 0;
 let currentBankNote = $5BankNote;
+currentPrinter = printer1; 
 let bankNoteSpeed = 10;
 let totalPrints = 0;
 let unlockedAchievements = [];
