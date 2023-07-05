@@ -624,6 +624,7 @@ class achievementNotification {
     fill(176, 191, 207);
     rect(this.posX, this.posY, this.width, this.height);
     fill(blackColor);
+    strokeWeight(1);
     textSize(achievementFontSize);
     textFont(mediumFont);
     text("Achievement Unlocked!", this.posX, this.posY - 40);
