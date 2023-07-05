@@ -206,13 +206,13 @@ function achievementFunction() {
   // Condition to unlock achievement 6
   if (timeElapsed() >= 60 && !(unlockedAchievements.includes("6"))) {
     achievementNotificationList.push(new achievementNotification(achievements["6"]));
-    unlockedAchievements.push("6");
+    unlockedAchievements.push(achievements["6"]);
   }
 
   // Condition to unlock achievement 5
   if (timeElapsed() >= 3600 && !(unlockedAchievements.includes("5"))) {
     achievementNotificationList.push(new achievementNotification(achievements["5"]));
-    unlockedAchievements.push("5");
+    unlockedAchievements.push(achievements["5"]);
   }
 }
 
@@ -603,7 +603,7 @@ class bankNote {
   }
 
   maxHeightReached() {
-    return (this.posY < windowHeight);
+    return (this.posY < 0);
   }
 }
 
@@ -715,7 +715,7 @@ function setup() {
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
-  print(printerMouseCollide);
+  print(unlockedAchievements, achievementNotificationList);
   background(bgColor);
   achievementFunction();
 
