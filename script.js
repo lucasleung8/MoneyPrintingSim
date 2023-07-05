@@ -165,7 +165,7 @@ const upgrades = {
 // Load save state, i.e. saved gameplay data from localStorage
 let money = 0;
 let MpS = 1;
-let moneyPerPrint;
+let moneyPerPrint = 1;
 let printDelay = 0;
 let bankNoteSpeed = 10;
 let totalPrints = 0;
@@ -712,7 +712,6 @@ function setup() {
   imageMode(CENTER);
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
-  moneyPerPrint = 1;
 }
 
 //-----------------------Main Sketch-----------------------//
