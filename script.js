@@ -571,7 +571,7 @@ class clickText {
     fill(this.color);
     textSize(this.size);
     textFont(moneyCounterFont);
-    text("+" + MoneyPerPrint, this.posX, this.posY);
+    text(${moneyPerPrint}, this.posX, this.posY);
   }
 
   move() {
