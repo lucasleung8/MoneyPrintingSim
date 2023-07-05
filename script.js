@@ -365,12 +365,12 @@ function titleScreenButtons() {
   exitButton();
 
   // Ensure menu selection with arrow keys won't skip to first or last button
-  if (keyIsPressed == false) {
+  if (!keyIsPressed) {
     titleScreenButtonsLocked = false;
   }
 
   // Change menu button selection via arrow keys - only once each time up/down arrow is released
-  if (titleScreenButtonsLocked == false) {
+  if (!titleScreenButtonsLocked) {
     if (keyIsDown(UP_ARROW) && selectedTitleScreenButton != 0) {
       selectedTitleScreenButton -= 1;
       titleScreenButtonsLocked = true;
@@ -471,7 +471,7 @@ function printer() {
   for (let i = 0; i < bankNoteList.length; i++) {
     bankNoteList[i].move();
     bankNoteList[i].display();
-    // remove bank note when target height reached and display popup text showing money earned
+    // remove bank note from array when target height reached and display popup text showing money earned
     if (bankNoteList[i].maxHeightReached()) {
       money += moneyPerPrint;
       bankNoteList.splice(i, 1);
@@ -603,7 +603,7 @@ class bankNote {
   }
 
   maxHeightReached() {
-    return (this.posY < windowHeight / 3);
+    return (this.posY < windowHeight);
   }
 }
 
