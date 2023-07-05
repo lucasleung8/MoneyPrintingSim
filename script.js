@@ -93,7 +93,7 @@ const minGameplayButtonAlpha = 70;
 const achievementColor = "176, 191, 207";
 const achievementFontSize = 24;
 const achievementSpeed = 10;
-const achievementDuration = 4;
+const achievementDuration = 4000;
 
 // Define assets
 let moneyCounterFont;
@@ -143,8 +143,8 @@ const achievements = {
   "2": "Avid reader", // open the about screen
   "3": "Humble beginnings", // print your first banknote
   "4": "Co-ordinated counterfeiting", // get $10/s
-  "5": "Dedicated", // play game for at least 1 hour
-  "6": "60 second mark", // play game for at least 60 seconds
+  "5": "Dedicated", // play for at least 1 hour
+  "6": "60 second mark", // play for at least 60 seconds
   "7": "3 figures" // earn at least $100
 };
 const numAchievements = Object.keys(achievements).length;
@@ -204,13 +204,13 @@ function achievementFunction() {
   }
 
   // Condition to unlock achievement 6
-  if (timeElapsed() >= 60 && !(unlockedAchievements.includes(achievements["6"]))) {
+  if (timeElapsed() >= 60000 && !(unlockedAchievements.includes(achievements["6"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["6"]));
     unlockedAchievements.push(achievements["6"]);
   }
 
   // Condition to unlock achievement 5
-  if (timeElapsed() >= 3600 && !(unlockedAchievements.includes(achievements["5"]))) {
+  if (timeElapsed() >= 3600000 && !(unlockedAchievements.includes(achievements["5"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["5"]));
     unlockedAchievements.push(achievements["5"]);
   }
@@ -613,7 +613,7 @@ class achievementNotification {
   constructor(name) {
     this.name = name;
     this.posX = windowWidth - (windowWidth / 8);
-    this.posY = windowHeight + (windowHeight / 7);
+    this.posY = windowHeight + (windowHeight / 8);
     this.width = windowWidth / 4;
     this.height = windowHeight / 5;
     // Number of seconds popup will appear for
@@ -632,9 +632,9 @@ class achievementNotification {
     text(this.name, this.posX, this.posY);
   }
 
-  // Remove achievement box when it's hidden from view
+  // Remove achievement box from array when it's hidden from view
   remove() {
-    return ((timeElapsed() > this.timeLimit) && (this.posY > windowHeight + windowHeight / 7));
+    return (this.posY > windowHeight * 2);
   }
 
   // Move achievement popup up on screen and move back down after specified time limit
