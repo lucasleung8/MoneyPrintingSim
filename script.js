@@ -90,7 +90,6 @@ let statsButtonAlpha = 255;
 const minGameplayButtonAlpha = 70;
 
 // Values for displaying achievement notification popup
-const achievementColor = "176, 191, 207";
 const achievementFontSize = 24;
 const achievementSpeed = 10;
 const achievementDuration = 4000;
@@ -622,7 +621,7 @@ class achievementNotification {
 
   // Draw the popup box and show name of the unlocked achievement
   display() {
-    fill(achievementColor);
+    fill(176, 191, 207);
     rect(this.posX, this.posY, this.width, this.height);
     fill(blackColor);
     textSize(achievementFontSize);
