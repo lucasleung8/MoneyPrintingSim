@@ -521,7 +521,7 @@ function gameplayButtons() {
 
   // Hovering mouse over in-game menu buttons and left clicking chooses them
   if (mouseTouchingUpgradeButton()) {
-    selectedGameplayButton = "Upgrade"; //WIP
+    selectedGameplayButton = "Upgrade";
   } else if (mouseTouchingStatsButton()) {
     selectedGameplayButton = "Stats";
     if (mouseIsPressed && mouseButton == LEFT) {
@@ -699,8 +699,17 @@ function aboutScreen() {
   }
 }
 
-// WIP menu displaying gameplay statistics, appearing when Stats button is selected
+// menu displaying gameplay statistics, appearing when Stats button is selected
 function statsScreen() {
+  textSize(32);
+  textFont(regularFont);
+  image(statsIcon, windowWidth/2, 100, 150, 150);
+  text(`Playtime (minutes): ${round(timeElapsed()/60)}`, windowWidth/2, 250, windowWidth, windowHeight);
+  text(`Money per print: $${moneyPerPrint}`, windowWidth/2, 300, windowWidth, windowHeight);
+  text(`Total prints: ${totalPrints}`, windowWidth/2, 350, windowWidth, windowHeight);
+  text(`Banknote speed: ${bankNoteSpeed}`, 650, 400, windowWidth, windowHeight);
+  textSize(24);
+  text("Press r to return to game", 650, 700);
 }
 
 //-----------------------Setup Function-----------------------//
