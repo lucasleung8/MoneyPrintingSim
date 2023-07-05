@@ -190,7 +190,7 @@ function achievementFunction() {
   for (let i = 0; i < achievementNotificationList.length; i++) {
     achievementNotificationList[i].display();
     achievementNotificationList[i].move();
-    // remove popup when it goes below screen
+    // remove popup when it goes below the screen
     if (achievementNotificationList[i].remove()) {
       achievementNotificationList.splice(i, 1);
     }
@@ -721,12 +721,19 @@ function draw() {
   // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
   if (gameState == 0) {
     titleScreen();
-    // Condition to unlock achievement 1 WIP
+    //condition to unlock achievement 1
+    if (!(unlockedAchievements.includes(achievements["1"]))) {
+      achievementNotificationList.push(new achievementNotification(achievements["1"]));
+      unlockedAchievements.push(achievements["1"]);
+    }
   } else if (gameState == 1) {
     gameScreen();
   } else if (gameState == 2) {
     aboutScreen();
-    // Condition to unlock achievement 2 WIP
+    if (!(unlockedAchievements.includes(achievements["2"]))) {
+      achievementNotificationList.push(new achievementNotification(achievements["2"]));
+      unlockedAchievements.push(achievements["2"]);
+    }
   } else if (gameState == 3) {
     remove();
   } else if (gameState == 4) {
