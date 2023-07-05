@@ -198,19 +198,19 @@ function achievementFunction() {
   }
 
   // Condition to unlock achievement 7
-  if (money >= 100 && !(unlockedAchievements.includes("7"))) {
+  if (money >= 100 && !(unlockedAchievements.includes(achievements["7"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["7"]));
     unlockedAchievements.push(achievements["7"]);
   }
 
   // Condition to unlock achievement 6
-  if (timeElapsed() >= 60 && !(unlockedAchievements.includes("6"))) {
+  if (timeElapsed() >= 60 && !(unlockedAchievements.includes(achievements["6"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["6"]));
     unlockedAchievements.push(achievements["6"]);
   }
 
   // Condition to unlock achievement 5
-  if (timeElapsed() >= 3600 && !(unlockedAchievements.includes("5"))) {
+  if (timeElapsed() >= 3600 && !(unlockedAchievements.includes(achievements["5"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["5"]));
     unlockedAchievements.push(achievements["5"]);
   }
