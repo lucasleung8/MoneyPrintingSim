@@ -432,7 +432,7 @@ function printBankNote() {
 
 // Printer sprite which prints banknotes out of it when left clicked or spacebar pressed
 function printer() {
-  currentPrinter = printer1; 
+  currentPrinter = printer1;
   tint(255, printerAlpha);
   image(currentPrinter, printerPosX, printerPosY, printerWidth, printerHeight);
 
@@ -592,7 +592,6 @@ class bankNote {
     this.width = printerWidth / 1.5;
     this.height = printerHeight;
     this.currentBankNote = $5BankNote;
-
   }
 
   display() {
@@ -683,13 +682,13 @@ function gameScreen() {
 
 // Screen that shows extra info about the game when About button selected from the title screen
 function aboutScreen() {
-  aboutTextPosY = windowHeight/2;
+  aboutTextPosY = windowHeight / 2;
   noStroke();
   textSize(32);
   textFont(regularFont);
   text("Money Printing Sim is my first ever attempt at creating a somewhat polished game. As I've always been drawn to games that involve calculations, data, stats, etc., I was inspired by incremental games the likes of Cookie Clicker and Clicker Heroes.", 650, 150, windowWidth, windowHeight);
   for (let i = 0; i < aboutText.length; i++) {
-    text(aboutText[i], 650, aboutTextPosY, windowWidth-50, windowHeight-50);
+    text(aboutText[i], 650, aboutTextPosY, windowWidth - 50, windowHeight - 50);
     aboutTextPosY += 50;
   }
   textSize(24);
@@ -737,15 +736,15 @@ function draw() {
 }
 
 // Print banknote when printer is left clicked
-function mouseClicked(){
-  if (printerMouseCollide){
+function mouseClicked() {
+  if (printerMouseCollide) {
     printBankNote();
   }
 }
 
 // Print banknote when spacebar pressed ingame
-function keyReleased(){
-  if (gameState == 1 && keyCode == 32){
+function keyReleased() {
+  if (gameState == 1 && keyCode == 32) {
     printBankNote();
   }
 }
