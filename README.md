@@ -1,4 +1,4 @@
-# MoneyPrintingSim
+# Money Printing Sim
 Money Printing Sim is a small scale incremental game written in p5.js similar to Cookie Clicker, but printing money instead of cookies. This was originally coded in a Python version of p5.js on Replit, that our teacher provided for the class. Having finished early, I am now porting it to real p5.js (this repo) as a personal project.
 Your goal is to make as much money as possible; along the way you will collect upgrades, earn achievements and more!
 
