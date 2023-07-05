@@ -716,6 +716,7 @@ function setup() {
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
+  print(printerAlpha);
   background(bgColor);
   achievementFunction();
 
