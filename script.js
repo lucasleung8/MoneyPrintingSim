@@ -434,7 +434,6 @@ function printBankNote() {
 
 // Printer sprite which prints banknotes out of it when left clicked or spacebar pressed
 function printer() {
-  currentPrinter = printer1;
   tint(255, printerAlpha);
   image(currentPrinter, printerPosX, printerPosY, printerWidth, printerHeight);
 
@@ -717,7 +716,7 @@ function setup() {
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
-  print(printerAlpha);
+  print(printerMouseCollide);
   background(bgColor);
   achievementFunction();
 
