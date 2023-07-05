@@ -447,7 +447,7 @@ function printer() {
   // Fade animtion when hovering over printer with mouse
   if (printerMouseCollide && printerAlpha > printerMinFade) {
     printerAlpha -= printerFadeAnimSpeed;
-  } else if (printerMouseCollide = false && printerAlpha < printerMaxFade) {
+  } else if (!printerMouseCollide && printerAlpha < printerMaxFade) {
     printerAlpha += printerFadeAnimSpeed;
   }
 
@@ -455,7 +455,7 @@ function printer() {
   if (((mouseIsPressed && mouseButton == LEFT && printerMouseCollide) || keyIsDown(32)) && (printerWidth >= printerMinWidth) && (printerHeight >= printerMinHeight)) {
     printerWidth -= printerSizeAnimSpeed;
     printerHeight -= printerSizeAnimSpeed;
-  } else if ((mouseIsPressed == false || printerMouseCollide == false) && printerWidth <= printerMaxWidth && printerHeight <= printerMaxHeight) {
+  } else if ((!mouseIsPressed || !printerMouseCollide) && printerWidth <= printerMaxWidth && printerHeight <= printerMaxHeight) {
     printerWidth += printerSizeAnimSpeed;
     printerHeight += printerSizeAnimSpeed;
   }
