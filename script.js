@@ -611,9 +611,11 @@ class achievementNotification {
 
   // Draw the popup box and show name of the unlocked achievement
   display() {
+    strokeWeight(3);
     fill(176, 191, 207);
     rect(this.posX, this.posY, this.width, this.height);
     fill(blackColor);
+    strokeWeight(0);
     textSize(achievementFontSize);
     textFont(mediumFont);
     text("Achievement Unlocked!", this.posX, this.posY - 40);
