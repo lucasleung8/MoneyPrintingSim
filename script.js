@@ -99,7 +99,7 @@ let moneyCounterFont;
 let gameTitleFont;
 let mediumFont;
 let regularFont;
-let titleScreenMoney;
+let gameLogo;
 let currentPrinter;
 let printer1;
 let printer2;
@@ -121,7 +121,7 @@ function preload() {
   mediumFont = loadFont('assets/Geologica-Medium.ttf');
   regularFont = loadFont('assets/Geologica-Regular.ttf');
   // Load sprites
-  titleScreenMoney = loadImage('assets/titleScreenMoney.png');
+  gameLogo = loadImage('assets/gameLogo.png');
   arrowKeys = loadImage('assets/arrowKeys.png');
   cursor = loadImage('assets/cursor.png');
   moneyIcon = loadImage('assets/moneyStack.png');
@@ -217,12 +217,11 @@ function achievementFunction() {
 
 // Game title/text & logo displayed on title screen
 function gameTitle() {
-  noStroke();
   fill(gameTitleColor);
   textSize(gameTitleSize);
   textFont(gameTitleFont);
   text("Money Printing Sim", gameTitlePosX, gameTitlePosY);
-  image(titleScreenMoney, gameTitlePosX, gameTitlePosY - 90, gameTitleSize + 30, gameTitleSize + 30);
+  image(gameLogo, gameTitlePosX, gameTitlePosY - 90, gameTitleSize + 30, gameTitleSize + 30);
 }
 
 // Show arrow key/enter menu controls in bottom left corner
@@ -238,7 +237,6 @@ function titleScreenInstructions() {
 }
 
 function playButton() {
-  strokeWeight(3);
   fill(87, 255, 95, playButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 1.9, playButtonWidth, windowHeight / 7.2);
   fill(blackColor);
@@ -272,7 +270,6 @@ function playButton() {
 }
 
 function aboutButton() {
-  strokeWeight(3);
   fill(38, 78, 255, aboutButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 2.5, aboutButtonWidth, windowHeight / 7.2);
   fill(blackColor);
@@ -306,7 +303,6 @@ function aboutButton() {
 }
 
 function exitButton() {
-  strokeWeight(3);
   fill(255, 30, 0, exitButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 3.1, exitButtonWidth, windowHeight / 7.2);
   fill(blackColor);
@@ -356,6 +352,7 @@ function mouseTouchingExitButton() {
 
 // Contains all the buttons on the title screen, functionality for selecting the buttons, and changing game state accordingly
 function titleScreenButtons() {
+  strokeWeight(3);
   playButton();
   aboutButton();
   exitButton();
@@ -711,11 +708,11 @@ function setup() {
   imageMode(CENTER);
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
+  stroke(255);
 }
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
-  stroke(255);
   print(unlockedAchievements, achievementNotificationList, millis(), timeElapsed());
   background(bgColor);
   achievementFunction();
