@@ -16,7 +16,7 @@ How to Play
 -----
 Go to the GitHub pages link listed in the repo description (https://mrworldwide1.github.io/MoneyPrintingSim/)
 
-Cheats / Hints
+Hints
 --------------
 If you are in need of money, press j to gain unlimited money
 
