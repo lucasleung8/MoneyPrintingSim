@@ -506,6 +506,7 @@ function mouseTouchingStatsButton() {
 
 // Contains all buttons that appear in-game. Displays upgrade/stats buttons, animates them, change game states
 function gameplayButtons() {
+  strokeWeight(3);
   upgradeButton();
   statsButton();
 
