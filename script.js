@@ -733,6 +733,7 @@ function draw() {
     gameScreen();
   } else if (gameState == 2) {
     aboutScreen();
+    //condition to unlock achievement 2
     if (!(unlockedAchievements.includes(achievements["2"]))) {
       achievementNotificationList.push(new achievementNotification(achievements["2"]));
       unlockedAchievements.push(achievements["2"]);
