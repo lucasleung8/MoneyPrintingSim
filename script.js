@@ -716,13 +716,12 @@ function setup() {
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
   stroke(255);
-  // music ost
+  ost.play();
 }
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
-  ost.play();
-  print(unlockedAchievements, achievementNotificationList, millis());
+  print(ost, millis());
   background(bgColor);
   achievementFunction();
 
