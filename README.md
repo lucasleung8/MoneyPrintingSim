@@ -19,3 +19,7 @@ Go to the GitHub pages link listed in the repo description (https://mrworldwide1
 Cheats / Hints
 --------------
 If you are in need of money, press j to gain unlimited money
+
+Image Attribution / Sources
+--------------
+Credit to Google Images
