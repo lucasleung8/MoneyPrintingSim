@@ -237,6 +237,7 @@ function titleScreenInstructions() {
 }
 
 function playButton() {
+  strokeWeight(3);
   fill(87, 255, 95, playButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 1.9, playButtonWidth, windowHeight / 7.2);
   fill(blackColor);
@@ -711,6 +712,7 @@ function setup() {
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
+  stroke(255);
   print(unlockedAchievements, achievementNotificationList);
   background(bgColor);
   achievementFunction();
