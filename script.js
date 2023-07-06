@@ -698,6 +698,11 @@ function statsScreen() {
   text(`Banknote speed: ${bankNoteSpeed}`, 650, 400, windowWidth, windowHeight);
   textSize(24);
   text("Press r to return to game", 650, 700);
+
+    // Pressing r key returns to gameplay screen
+    if (keyIsPressed && keyCode == 82) {
+      gameState = 1;
+    }
 }
 
 //-----------------------Setup Function-----------------------//
@@ -732,6 +737,7 @@ function draw() {
       achievementNotificationList.push(new achievementNotification(achievements["2"]));
       unlockedAchievements.push(achievements["2"]);
     }
+
   } else if (gameState == 3) {
     remove();
   } else if (gameState == 4) {
