@@ -20,6 +20,8 @@ Hints
 --------------
 If you are in need of money, press j to gain unlimited money
 
-Assets
+Credits
 --------------
-Credit to Google Images
+Graphics: Google Images
+Audio: freesound.org
+Everything else: me
