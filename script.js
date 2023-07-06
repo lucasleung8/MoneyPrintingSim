@@ -720,7 +720,7 @@ function setup() {
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
-  print(ost, millis());
+  print(millis());
   background(bgColor);
   achievementFunction();
 
