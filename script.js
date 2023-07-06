@@ -217,6 +217,7 @@ function achievementFunction() {
 
 // Game title/text & logo displayed on title screen
 function gameTitle() {
+  noStroke();
   fill(gameTitleColor);
   textSize(gameTitleSize);
   textFont(gameTitleFont);
