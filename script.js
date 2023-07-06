@@ -112,6 +112,7 @@ let $20BankNote;
 let $50BankNote;
 let $100BankNote;
 let statsIcon;
+let ost;
 
 function preload() {
   // Load sound
