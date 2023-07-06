@@ -20,6 +20,6 @@ Cheats / Hints
 --------------
 If you are in need of money, press j to gain unlimited money
 
-Image Attribution / Sources
+Asset Sources
 --------------
 Credit to Google Images
