@@ -725,7 +725,6 @@ function draw() {
   print(unlockedAchievements, achievementNotificationList, millis());
   background(bgColor);
   achievementFunction();
-  ost.play();
 
   // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
   if (gameState == 0) {
