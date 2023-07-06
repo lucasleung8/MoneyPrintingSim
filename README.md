@@ -23,5 +23,7 @@ If you are in need of money, press j to gain unlimited money
 Credits
 --------------
 Graphics: Google Images
+
 Audio: freesound.org
+
 Everything else: me
