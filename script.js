@@ -237,15 +237,12 @@ function titleScreenInstructions() {
 }
 
 function playButton() {
-  strokeWeight(4);
-  stroke(255);
   fill(87, 255, 95, playButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 1.9, playButtonWidth, windowHeight / 7.2);
   fill(blackColor);
   textSize(menuButtonFontSize);
   textFont(mediumFont);
   text("Play", gameTitlePosX, gameTitlePosY * 1.9);
-  strokeWeight(1);
 
   // Show size animation when play button selected
   if (selectedTitleScreenButton == 0) {
@@ -276,8 +273,6 @@ function aboutButton() {
   fill(38, 78, 255, aboutButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 2.5, aboutButtonWidth, windowHeight / 7.2);
   fill(blackColor);
-  strokeWeight(4);
-  stroke(255);
   textSize(menuButtonFontSize);
   textFont(mediumFont);
   text("About", gameTitlePosX, gameTitlePosY * 2.5);
@@ -311,8 +306,6 @@ function exitButton() {
   fill(255, 30, 0, exitButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 3.1, exitButtonWidth, windowHeight / 7.2);
   fill(blackColor);
-  strokeWeight(4);
-  stroke(255);
   textSize(menuButtonFontSize);
   textFont(mediumFont);
   text("Exit", gameTitlePosX, gameTitlePosY * 3.1);
@@ -484,11 +477,9 @@ function upgradeButton() {
   fill(252, 140, 3, upgradeButtonAlpha);
   rect(windowWidth / 1.06, windowHeight / 2, upgradeButtonWidth, windowHeight / 7, 15);
   fill(blackColor);
-  stroke(255);
   textSize(gameplayButtonFontSize);
   textFont(mediumFont);
   text("Upgrade [U]", windowWidth / 1.06, windowHeight / 2);
-  strokeWeight(4);
 }
 
 // Draw in-game Stats button
@@ -496,8 +487,6 @@ function statsButton() {
   fill(186, 3, 252, statsButtonAlpha);
   rect(windowWidth / 1.06, windowHeight / 1.5, statsButtonWidth, windowHeight / 7, 15);
   fill(blackColor);
-  strokeWeight(3);
-  stroke(255);
   textSize(gameplayButtonFontSize);
   textFont(mediumFont);
   text("Stats [S]", windowWidth / 1.06, windowHeight / 1.5);
@@ -623,7 +612,6 @@ class achievementNotification {
     fill(176, 191, 207);
     rect(this.posX, this.posY, this.width, this.height);
     fill(blackColor);
-    strokeWeight(1);
     textSize(achievementFontSize);
     textFont(mediumFont);
     text("Achievement Unlocked!", this.posX, this.posY - 40);
