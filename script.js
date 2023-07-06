@@ -116,7 +116,7 @@ let ost;
 
 function preload() {
   // Load sound
-  ost = loadSound("assets/WindowGazingIvorSlaney.mp3");
+  ost = loadSound("assets/09. Max Coveri - Running in the 90's.flac");
   // Load fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
   gameTitleFont = loadFont('assets/MonomaniacOne-Regular.ttf');
