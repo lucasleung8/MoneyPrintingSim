@@ -741,7 +741,6 @@ function draw() {
       achievementNotificationList.push(new achievementNotification(achievements["2"]));
       unlockedAchievements.push(achievements["2"]);
     }
-
   } else if (gameState == 3) {
     remove();
   } else if (gameState == 4) {
