@@ -114,6 +114,8 @@ let $100BankNote;
 let statsIcon;
 
 function preload() {
+  // Load sound
+  ost = loadSound("assets/09. Max Coveri - Running in the 90's.flac");
   // Load fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
   gameTitleFont = loadFont('assets/MonomaniacOne-Regular.ttf');
@@ -713,6 +715,8 @@ function setup() {
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
   stroke(255);
+  // music ost
+  ost.play();
 }
 
 //-----------------------Main Sketch-----------------------//
