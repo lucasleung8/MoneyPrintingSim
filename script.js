@@ -717,11 +717,11 @@ function setup() {
   textAlign(CENTER, CENTER);
   stroke(255);
   // music ost
-  ost.play();
 }
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
+  ost.play();
   print(unlockedAchievements, achievementNotificationList, millis());
   background(bgColor);
   achievementFunction();
