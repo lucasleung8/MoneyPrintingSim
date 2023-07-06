@@ -673,6 +673,7 @@ function gameScreen() {
 
 // Screen that shows extra info about the game when About button selected from the title screen
 function aboutScreen() {
+  strokeWeight(0);
   aboutTextPosY = windowHeight / 2;
   textSize(32);
   textFont(regularFont);
