@@ -501,7 +501,6 @@ function statsButton() {
   textSize(gameplayButtonFontSize);
   textFont(mediumFont);
   text("Stats [S]", windowWidth / 1.06, windowHeight / 1.5);
-  strokeWeight(4);
 }
 
 // Detect mouse collision with Upgrade button
@@ -683,7 +682,6 @@ function gameScreen() {
 // Screen that shows extra info about the game when About button selected from the title screen
 function aboutScreen() {
   aboutTextPosY = windowHeight / 2;
-  noStroke();
   textSize(32);
   textFont(regularFont);
   text("Money Printing Sim is my first ever attempt at creating a somewhat polished game. As I've always been drawn to games that involve calculations, data, stats, etc., I was inspired by incremental games the likes of Cookie Clicker and Clicker Heroes.", 650, 150, windowWidth, windowHeight);
@@ -693,6 +691,7 @@ function aboutScreen() {
   }
   textSize(24);
   text("Press Esc to return to title screen", 650, aboutTextPosY + 50);
+
 
   // Pressing Esc key returns to title screen
   if (keyIsPressed && keyCode == 27) {
