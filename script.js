@@ -271,6 +271,7 @@ function playButton() {
 }
 
 function aboutButton() {
+  strokeWeight(3);
   fill(38, 78, 255, aboutButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 2.5, aboutButtonWidth, windowHeight / 7.2);
   fill(blackColor);
@@ -304,6 +305,7 @@ function aboutButton() {
 }
 
 function exitButton() {
+  strokeWeight(3);
   fill(255, 30, 0, exitButtonAlpha);
   rect(gameTitlePosX, gameTitlePosY * 3.1, exitButtonWidth, windowHeight / 7.2);
   fill(blackColor);
