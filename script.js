@@ -4,7 +4,6 @@
 // Date: 16 June 2023
 
 //-----------------------Setup-----------------------//
-let startTime = Date.now();
 const bgColor = 235;
 const windowWidth = 1280;
 const windowHeight = 720;
@@ -173,12 +172,6 @@ let unlockedUpgrades = [];
 
 
 //-----------------------Custom Functions-----------------------//
-
-// Returns number of seconds since program started
-function timeElapsed() {
-  return Date.now() - startTime;
-}
-
 // Auto save game progress to localStorage at a set frequency
 // WIP: Reddit post
 //
@@ -203,13 +196,13 @@ function achievementFunction() {
   }
 
   // Condition to unlock achievement 6
-  if (timeElapsed() >= 60000 && !(unlockedAchievements.includes(achievements["6"]))) {
+  if (millis() >= 60000 && !(unlockedAchievements.includes(achievements["6"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["6"]));
     unlockedAchievements.push(achievements["6"]);
   }
 
   // Condition to unlock achievement 5
-  if (timeElapsed() >= 3600000 && !(unlockedAchievements.includes(achievements["5"]))) {
+  if (millis() >= 3600000 && !(unlockedAchievements.includes(achievements["5"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["5"]));
     unlockedAchievements.push(achievements["5"]);
   }
@@ -608,7 +601,7 @@ class achievementNotification {
     this.width = windowWidth / 4;
     this.height = windowHeight / 5;
     // Number of seconds popup will appear for
-    this.timeLimit = timeElapsed() + achievementDuration;
+    this.timeLimit = millis() + achievementDuration;
   }
 
   // Draw the popup box and show name of the unlocked achievement
@@ -632,9 +625,9 @@ class achievementNotification {
 
   // Move achievement popup up on screen and move back down after specified time limit
   move() {
-    if (timeElapsed() < this.timeLimit && this.posY > windowHeight / 1.08) {
+    if (millis() < this.timeLimit && this.posY > windowHeight / 1.08) {
       this.posY -= achievementSpeed;
-    } else if (timeElapsed() > this.timeLimit) {
+    } else if (millis() > this.timeLimit) {
       this.posY += achievementSpeed;
     }
   }
@@ -699,7 +692,7 @@ function statsScreen() {
   textSize(32);
   textFont(regularFont);
   image(statsIcon, windowWidth/2, 100, 150, 150);
-  text("Playtime (minutes): $ " + round(timeElapsed()/60), windowWidth/2, 250, windowWidth, windowHeight);
+  text("Playtime (minutes): $ " + round(millis()/60), windowWidth/2, 250, windowWidth, windowHeight);
   text(`Money per print: $${moneyPerPrint}`, windowWidth/2, 300, windowWidth, windowHeight);
   text(`Total prints: ${totalPrints}`, windowWidth/2, 350, windowWidth, windowHeight);
   text(`Banknote speed: ${bankNoteSpeed}`, 650, 400, windowWidth, windowHeight);
@@ -719,7 +712,7 @@ function setup() {
 
 //-----------------------Main Sketch-----------------------//
 function draw() {
-  print(unlockedAchievements, achievementNotificationList, millis(), timeElapsed());
+  print(unlockedAchievements, achievementNotificationList, millis());
   background(bgColor);
   achievementFunction();
 
