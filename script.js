@@ -716,6 +716,7 @@ function setup() {
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
   stroke(255);
+  ost.play();
 }
 
 //-----------------------Main Sketch-----------------------//
@@ -752,7 +753,6 @@ function draw() {
 function mouseClicked() {
   if (printerMouseCollide) {
     printBankNote();
-    ost.play();
   }
 }
 
