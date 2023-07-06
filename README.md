@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/mrworldwide1/MoneyPrintingSim/main/assets/titleScreenMoney.png" width="110", height="100">
+    <img src="https://github.com/mrworldwide1/MoneyPrintingSim/blob/main/assets/gameLogo.png?raw=true" width="100", height="100">
 </div>
 
 <h1 align="center">Money Printing Sim</h1>
