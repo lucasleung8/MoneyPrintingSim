@@ -179,7 +179,7 @@ function timeElapsed() {
   return Date.now() - startTime;
 }
 
-// Auto save game progress to localstorage at a set frequency
+// Auto save game progress to localStorage at a set frequency
 // WIP: Reddit post
 //
 //
@@ -716,7 +716,7 @@ function setup() {
 //-----------------------Main Sketch-----------------------//
 function draw() {
   stroke(255);
-  print(unlockedAchievements, achievementNotificationList);
+  print(unlockedAchievements, achievementNotificationList, millis(), timeElapsed());
   background(bgColor);
   achievementFunction();
 
