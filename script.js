@@ -378,14 +378,17 @@ function titleScreenButtons() {
     selectedTitleScreenButton = 2;
   }
 
-  // When a button is highlighted, pressing Enter or left clicking it switches screens accordingly
+  // When a button is highlighted, pressing Enter or left clicking switches screens accordingly
   if ((keyIsPressed && keyCode == ENTER) || (mouseIsPressed && mouseButton == LEFT && mouseTouchingPlayButton()) || (mouseIsPressed && mouseButton == LEFT && mouseTouchingAboutButton()) || (mouseIsPressed && mouseButton == LEFT && mouseTouchingExitButton())) {
     if (selectedTitleScreenButton == 0) {
       gameState = 1;
+      buttonSound.play();
     } else if (selectedTitleScreenButton == 1) {
       gameState = 2;
+      buttonSound.play();
     } else if (selectedTitleScreenButton == 2) {
       gameState = 3;
+      buttonSound.play();
     }
   }
 }
