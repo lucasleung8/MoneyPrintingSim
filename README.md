@@ -24,8 +24,6 @@ Credits
 --------------
 Graphics: Google Images
 
-Audio: freesound.org
-
-OST: https://www.youtube.com/watch?v=qO3UTD1kDyM
+Audio: freesound.org and Google's Material Design V2 https://m2.material.io/design/sound/sound-resources.html
 
 Everything else: me
