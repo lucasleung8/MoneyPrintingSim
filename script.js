@@ -118,7 +118,7 @@ let achievementSound;
 function preload() {
   // Load sounds
   buttonSound = loadSound("assets/448086__breviceps__normal-click.wav");
-  achievementSound = loadSound("assets/achievementSound.wav")
+  achievementSound = loadSound("assets/achievementSound.wav");
   // Load fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
   gameTitleFont = loadFont('assets/MonomaniacOne-Regular.ttf');
@@ -197,18 +197,21 @@ function achievementFunction() {
   if (money >= 100 && !(unlockedAchievements.includes(achievements["7"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["7"]));
     unlockedAchievements.push(achievements["7"]);
+    achievementSound.play();
   }
 
   // Condition to unlock achievement 6
   if (millis() >= 60000 && !(unlockedAchievements.includes(achievements["6"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["6"]));
     unlockedAchievements.push(achievements["6"]);
+    achievementSound.play();
   }
 
   // Condition to unlock achievement 5
   if (millis() >= 3600000 && !(unlockedAchievements.includes(achievements["5"]))) {
     achievementNotificationList.push(new achievementNotification(achievements["5"]));
     unlockedAchievements.push(achievements["5"]);
+    achievementSound.play();
   }
 }
 
@@ -737,6 +740,7 @@ function draw() {
     if (!(unlockedAchievements.includes(achievements["1"]))) {
       achievementNotificationList.push(new achievementNotification(achievements["1"]));
       unlockedAchievements.push(achievements["1"]);
+      achievementSound.play();
     }
   } else if (gameState == 1) {
     gameScreen();
@@ -746,6 +750,7 @@ function draw() {
     if (!(unlockedAchievements.includes(achievements["2"]))) {
       achievementNotificationList.push(new achievementNotification(achievements["2"]));
       unlockedAchievements.push(achievements["2"]);
+      achievementSound.play();
     }
   } else if (gameState == 3) {
     remove();
