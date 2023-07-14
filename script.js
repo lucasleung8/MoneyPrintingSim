@@ -117,7 +117,7 @@ let achievementSound;
 
 function preload() {
   // Load sounds
-  buttonSound = loadSound("assets/448086__breviceps__normal-click.wav");
+  buttonSound = loadSound("assets/ui_tap-variant-01.wav");
   achievementSound = loadSound("assets/achievementSound.wav");
   // Load fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
