@@ -393,7 +393,7 @@ function titleScreenButtons() {
   }
 }
 
-// Perform money earning calculation and increment money
+// Perform money earning calculation
 function moneyPerSecond() {
   if (storedMillis + 100 <= millis()) {
     moneyIncrease = MpS / 10;
@@ -516,6 +516,7 @@ function gameplayButtons() {
     selectedGameplayButton = "Stats";
     if (mouseIsPressed && mouseButton == LEFT) {
       gameState = 4;
+      buttonSound.play();
     }
   }
 
@@ -541,6 +542,7 @@ function gameplayButtons() {
 
   } else if (keyIsPressed && (key == "s" || key == "S")) {
     gameState = 4;
+    buttonSound.play();
   }
 }
 
@@ -696,18 +698,18 @@ function aboutScreen() {
 function statsScreen() {
   textSize(32);
   textFont(regularFont);
-  image(statsIcon, windowWidth/2, 100, 150, 150);
-  text("Playtime (minutes): " + round(millis()/60000, 1), windowWidth/2, 250, windowWidth, windowHeight);
-  text(`Money per print: $${moneyPerPrint}`, windowWidth/2, 300, windowWidth, windowHeight);
-  text(`Total prints: ${totalPrints}`, windowWidth/2, 350, windowWidth, windowHeight);
+  image(statsIcon, windowWidth / 2, 100, 150, 150);
+  text("Playtime (minutes): " + round(millis() / 60000, 1), windowWidth / 2, 250, windowWidth, windowHeight);
+  text(`Money per print: $${moneyPerPrint}`, windowWidth / 2, 300, windowWidth, windowHeight);
+  text(`Total prints: ${totalPrints}`, windowWidth / 2, 350, windowWidth, windowHeight);
   text(`Banknote speed: ${bankNoteSpeed}`, 650, 400, windowWidth, windowHeight);
   textSize(24);
   text("Press r to return to game", 650, 700);
 
-    // Pressing r key returns to gameplay screen
-    if (keyIsPressed && keyCode == 82) {
-      gameState = 1;
-    }
+  // Pressing r key returns to gameplay screen
+  if (keyIsPressed && keyCode == 82) {
+    gameState = 1;
+  }
 }
 
 //-----------------------Setup Function-----------------------//
