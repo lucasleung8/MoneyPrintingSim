@@ -740,7 +740,6 @@ function draw() {
     if (!(unlockedAchievements.includes(achievements["1"]))) {
       achievementNotificationList.push(new achievementNotification(achievements["1"]));
       unlockedAchievements.push(achievements["1"]);
-      achievementSound.play();
     }
   } else if (gameState == 1) {
     gameScreen();
