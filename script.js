@@ -113,10 +113,12 @@ let $50BankNote;
 let $100BankNote;
 let statsIcon;
 let buttonSound;
+let achievementSound;
 
 function preload() {
-  // Load sound
-  buttonSound = loadSound("assets/09. Max Coveri - Running in the 90's.flac");
+  // Load sounds
+  buttonSound = loadSound("assets/448086__breviceps__normal-click.wav");
+  achievementSound = loadSound("assets/achievementSound.wav")
   // Load fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
   gameTitleFont = loadFont('assets/MonomaniacOne-Regular.ttf');
