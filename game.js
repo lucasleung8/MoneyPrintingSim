@@ -687,7 +687,7 @@ function gameScreen() {
   // Pressing Esc returns to title screen
   if (keyIsPressed && keyCode == 27) {
     gameState = 0;
-  // Pressing j gains unlimited money as cheat
+  // Cheat: pressing j gives unlimited money
   } else if (keyIsPressed && (key == "j" || key == "J")) {
     money += 9999999999999999999999999999999;
 }
