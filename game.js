@@ -659,24 +659,24 @@ class achievementNotification {
 
 //-----------------------Game States-----------------------//
 
-// Title screen with Play, About, and Exit buttons, num of achievements, and menu navigation help
+// Title screen that appears when game is first launched
 function titleScreen() {
   gameTitle();
   titleScreenButtons();
   titleScreenInstructions();
-  // show copyright & num of unlocked achievements
+  // show copyright & number of unlocked achievements
   textSize(gameTitleSize / 4);
   text("©Lucas Leung 2023", windowWidth - 100, windowHeight - 20);
   textSize(gameTitleSize / 3);
   text("Achievements unlocked: " + unlockedAchievements.length + " out of " + numAchievements, windowWidth - 1050, windowHeight - 200);
 
-  // Clear all printer click tex to ensure they don't remain when game is replayed
+  // Clear all printer click text to ensure they don't remain when game is replayed
   for (let i = 0; i < clickTextList.length; i++) {
     clickTextList.splice(i, 1);
   }
 }
 
-// Main gameplay screen that starts when Play button is selected from title screen
+// Gameplay that stats when Play button is pressed from title screen
 function gameScreen() {
   moneyPerSecond();
   moneyCounter();
@@ -693,7 +693,7 @@ function gameScreen() {
 }
 }
 
-// Screen that shows extra info about the game when About button selected from the title screen
+// Shows extra info about the game when About is selected
 function aboutScreen() {
   strokeWeight(0);
   aboutTextPosY = windowHeight / 2;
@@ -714,7 +714,7 @@ function aboutScreen() {
   }
 }
 
-// menu displaying gameplay statistics, appearing when Stats button is selected
+// Menu displaying gameplay statistics, appearing when Stats button is pressed
 function statsScreen() {
   textSize(32);
   textFont(regularFont);
@@ -771,6 +771,8 @@ function draw() {
     remove();
   } else if (gameState == 4) {
     statsScreen();
+  } else if (gameState == 5) {
+    upgradesScreen();
   }
 }
 
