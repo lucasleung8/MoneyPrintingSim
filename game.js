@@ -145,7 +145,7 @@ function preload() {
   $50BankNote = loadImage('assets/$50.png');
   $100BankNote = loadImage('assets/$100.png');
   statsIcon = loadImage('assets/stats.webp');
-  upgradesIcon = loadImage('assests/upgradeGearIcon.png');
+  upgradesIcon = loadImage('assests/gear.png');
 }
 
 // All unlockable achievements - format is num:name
