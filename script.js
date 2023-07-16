@@ -19,7 +19,7 @@ let printerMouseCollide = false;
 let storedMillis = 0;
 const autoSaveInterval = 10;
 const blackColor = 0;
-const aboutText = ["Lucas Leung", "June 16, 2023", "Mr. Marco Arsenault", "ICS3U", "Sem. 2"];
+const aboutText = ["Lucas Leung", "June 16, 2023", "Mr. Arsenault", "ICS3U", "Sem. 2"];
 let gameTitleSize = (windowWidth + windowHeight) / 25;
 let gameTitlePosX = windowWidth / 2;
 let gameTitlePosY = windowHeight / 3.5;
@@ -97,7 +97,7 @@ const achievementFontSize = 24;
 const achievementSpeed = 10;
 const achievementDuration = 4000;
 
-// Define assets
+// Define variables used to store assets
 let moneyCounterFont;
 let gameTitleFont;
 let mediumFont;
@@ -116,19 +116,21 @@ let $20BankNote;
 let $50BankNote;
 let $100BankNote;
 let statsIcon;
+// sounds
 let buttonSound;
 let achievementSound;
 
+// Ensure assets fully load before game starts
 function preload() {
-  // Load sounds
+  //  sounds
   buttonSound = loadSound("assets/uiTap.wav");
   achievementSound = loadSound("assets/achievementSound.wav");
-  // Load fonts
+  //  fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
   gameTitleFont = loadFont('assets/MonomaniacOne-Regular.ttf');
   mediumFont = loadFont('assets/Geologica-Medium.ttf');
   regularFont = loadFont('assets/Geologica-Regular.ttf');
-  // Load sprites
+  //  sprites
   gameLogo = loadImage('assets/gameLogo.png');
   arrowKeys = loadImage('assets/arrowKeys.png');
   cursor = loadImage('assets/cursor.png');
