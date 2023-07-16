@@ -5,7 +5,7 @@
 
 //WIP:
 // Get localStorage autosave working by following tutorial
-// 
+// Create upgrades screen
 
 //-----------------------Setup-----------------------//
 const bgColor = 235;
@@ -687,7 +687,10 @@ function gameScreen() {
   // Pressing Esc returns to title screen
   if (keyIsPressed && keyCode == 27) {
     gameState = 0;
-  }
+  // Pressing j gains unlimited money as cheat
+  } else if (keyIsPressed && (key == "j" || key == "J")) {
+    money += 2147483647;
+}
 }
 
 // Screen that shows extra info about the game when About button selected from the title screen
