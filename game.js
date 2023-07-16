@@ -732,6 +732,13 @@ function statsScreen() {
   }
 }
 
+// Display unlockable/locked upgrades player can purchase
+function upgradesScreen(){
+  textSize(32);
+  textFont(mediumFont);
+  image(statsIcon, windowWidth / 2, 100, 150, 150);
+  text(`Money: ${money}`, windowWidth / 2, windowHeight / 9, windowWidth, windowHeight);
+}
 //-----------------------Setup-----------------------//
 function setup() {
   createCanvas(windowWidth, windowHeight);
