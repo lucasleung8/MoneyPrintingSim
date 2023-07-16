@@ -689,7 +689,7 @@ function gameScreen() {
     gameState = 0;
   // Pressing j gains unlimited money as cheat
   } else if (keyIsPressed && (key == "j" || key == "J")) {
-    money += 2147483647;
+    money += 9999999999999999999999999999999;
 }
 }
 
