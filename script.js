@@ -1,5 +1,5 @@
 // Money Printing Sim
-// Description: ICS3U Final Project, an incremental game similar to Cookie Clicker, but printing money instead of cookies. Ported from python p5js to pure p5js. Now its a personal project.
+// Description: An incremental game similar to Cookie Clicker, but printing money instead of cookies.
 // Author: Lucas Leung
 // Date: 16 June 2023
 
@@ -117,7 +117,7 @@ let achievementSound;
 
 function preload() {
   // Load sounds
-  buttonSound = loadSound("assets/ui_tap-variant-01.wav");
+  buttonSound = loadSound("assets/uiTap.wav");
   achievementSound = loadSound("assets/achievementSound.wav");
   // Load fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
