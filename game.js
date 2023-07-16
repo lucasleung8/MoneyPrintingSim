@@ -85,7 +85,7 @@ const MpSColor = 0;
 
 // Upgrades/statistics buttons shown during gameplay
 let statsButtonWidth = windowWidth / 7;
-let upgradeButtonWidth = statsButtonWidth * 2;
+let upgradeButtonWidth = statsButtonWidth;
 let gameplayButtonFontSize = gameTitleSize / 3;
 const gameplayButtonMouseDist = 80;
 let upgradeButtonAlpha = 255;
@@ -173,7 +173,7 @@ const upgrades = {
 
 // Load save state, i.e. saved gameplay data from localStorage
 let money = 0;
-let MpS = 1;
+let MpS = 0;
 let moneyPerPrint = 1;
 let printDelay = 0;
 let bankNoteSpeed = 10;
