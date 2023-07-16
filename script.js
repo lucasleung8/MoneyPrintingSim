@@ -3,6 +3,10 @@
 // Author: Lucas Leung
 // Date: 16 June 2023
 
+//WIP:
+// Get localStorage autosave working by following tutorial
+// 
+
 //-----------------------Setup-----------------------//
 const bgColor = 235;
 const windowWidth = 1280;
