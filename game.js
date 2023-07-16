@@ -116,6 +116,7 @@ let $20BankNote;
 let $50BankNote;
 let $100BankNote;
 let statsIcon;
+let upgradesIcon;
 // sounds
 let buttonSound;
 let achievementSound;
@@ -144,6 +145,7 @@ function preload() {
   $50BankNote = loadImage('assets/$50.png');
   $100BankNote = loadImage('assets/$100.png');
   statsIcon = loadImage('assets/stats.webp');
+  upgradesIcon = loadImage('assests/upgradeGearIcon.png');
 }
 
 // All unlockable achievements - format is num:name
@@ -741,8 +743,8 @@ function statsScreen() {
 function upgradesScreen(){
   textSize(32);
   textFont(mediumFont);
-  image(statsIcon, windowWidth / 2, 100, 150, 150);
-  text(`Money: ${money}`, windowWidth / 2, windowHeight / 9, windowWidth, windowHeight);
+  image(upgradesIcon, windowWidth / 2, 100, 150, 150);
+  text(`Money: ${money}`, windowWidth / 2, windowHeight / 6, windowWidth, windowHeight);
 }
 //-----------------------Setup-----------------------//
 function setup() {
