@@ -123,7 +123,7 @@ let achievementSound;
 // Ensure assets fully load before game starts
 function preload() {
   //  sounds
-  buttonSound = loadSound("assets/uiTap.wav");
+  buttonSound = loadSound("assets/click.wav");
   achievementSound = loadSound("assets/achievementSound.wav");
   //  fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
@@ -529,6 +529,10 @@ function gameplayButtons() {
   // Hovering mouse over in-game menu buttons and left clicking chooses them
   if (mouseTouchingUpgradeButton()) {
     selectedGameplayButton = "Upgrade";
+    if (mouseIsPressed && mouseButton == LEFT) {
+      gameState = 5;
+      buttonSound.play();
+    }
   } else if (mouseTouchingStatsButton()) {
     selectedGameplayButton = "Stats";
     if (mouseIsPressed && mouseButton == LEFT) {
@@ -556,7 +560,8 @@ function gameplayButtons() {
 
   // Keyboard shortcuts to open the Upgrade and Stats screens
   if (keyIsPressed && (key == "u" || key == "U")) {
-
+    gameState = 5;
+    buttonSound.play();
   } else if (keyIsPressed && (key == "s" || key == "S")) {
     gameState = 4;
     buttonSound.play();
