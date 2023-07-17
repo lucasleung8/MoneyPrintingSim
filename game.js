@@ -694,10 +694,10 @@ function gameScreen() {
   // Pressing Esc returns to title screen
   if (keyIsPressed && keyCode == 27) {
     gameState = 0;
-  // Cheat: pressing j gives unlimited money
+    // Cheat: pressing j gives unlimited money
   } else if (keyIsPressed && (key == "j" || key == "J")) {
     money += 9999999999999999999999999999999;
-}
+  }
 }
 
 // Shows extra info about the game when About is selected
@@ -740,67 +740,70 @@ function statsScreen() {
 }
 
 // Display unlockable/locked upgrades player can purchase
-function upgradesScreen(){
+function upgradesScreen() {
   textSize(32);
   textFont(mediumFont);
   image(upgradesIcon, windowWidth / 2, 100, 150, 150);
   text("Money: $" + round(money, 5), windowWidth / 2, windowHeight / 3.5, windowWidth, windowHeight);
-}
+  // Pressing Esc returns to title screen
+  if (keyIsPressed && keyCode == 27) {
+    gameState = 0;
+  }
 
-//-----------------------Setup-----------------------//
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(bgColor);
-  imageMode(CENTER);
-  rectMode(CENTER);
-  textAlign(CENTER, CENTER);
-  stroke(255);
-}
+  //-----------------------Setup-----------------------//
+  function setup() {
+    createCanvas(windowWidth, windowHeight);
+    background(bgColor);
+    imageMode(CENTER);
+    rectMode(CENTER);
+    textAlign(CENTER, CENTER);
+    stroke(255);
+  }
 
-//-----------------------Main Sketch-----------------------//
-function draw() {
-  print(millis());
-  background(bgColor);
-  achievementFunction();
+  //-----------------------Main Sketch-----------------------//
+  function draw() {
+    print(millis());
+    background(bgColor);
+    achievementFunction();
 
-  // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
-  if (gameState == 0) {
-    titleScreen();
-  } else if (gameState == 1) {
-    gameScreen();
-    //condition to unlock achievement 1
-    if (!(unlockedAchievements.includes(achievements["1"]))) {
-      achievementNotificationList.push(new achievementNotification(achievements["1"]));
-      unlockedAchievements.push(achievements["1"]);
-      achievementSound.play();
+    // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
+    if (gameState == 0) {
+      titleScreen();
+    } else if (gameState == 1) {
+      gameScreen();
+      //condition to unlock achievement 1
+      if (!(unlockedAchievements.includes(achievements["1"]))) {
+        achievementNotificationList.push(new achievementNotification(achievements["1"]));
+        unlockedAchievements.push(achievements["1"]);
+        achievementSound.play();
+      }
+    } else if (gameState == 2) {
+      aboutScreen();
+      //condition to unlock achievement 2
+      if (!(unlockedAchievements.includes(achievements["2"]))) {
+        achievementNotificationList.push(new achievementNotification(achievements["2"]));
+        unlockedAchievements.push(achievements["2"]);
+        achievementSound.play();
+      }
+    } else if (gameState == 3) {
+      remove();
+    } else if (gameState == 4) {
+      statsScreen();
+    } else if (gameState == 5) {
+      upgradesScreen();
     }
-  } else if (gameState == 2) {
-    aboutScreen();
-    //condition to unlock achievement 2
-    if (!(unlockedAchievements.includes(achievements["2"]))) {
-      achievementNotificationList.push(new achievementNotification(achievements["2"]));
-      unlockedAchievements.push(achievements["2"]);
-      achievementSound.play();
+  }
+
+  // Print banknote when printer is left clicked
+  function mouseClicked() {
+    if (printerMouseCollide) {
+      printBankNote();
     }
-  } else if (gameState == 3) {
-    remove();
-  } else if (gameState == 4) {
-    statsScreen();
-  } else if (gameState == 5) {
-    upgradesScreen();
   }
-}
 
-// Print banknote when printer is left clicked
-function mouseClicked() {
-  if (printerMouseCollide) {
-    printBankNote();
+  // Print banknote when spacebar pressed ingame
+  function keyReleased() {
+    if (gameState == 1 && keyCode == 32) {
+      printBankNote();
+    }
   }
-}
-
-// Print banknote when spacebar pressed ingame
-function keyReleased() {
-  if (gameState == 1 && keyCode == 32) {
-    printBankNote();
-  }
-}
