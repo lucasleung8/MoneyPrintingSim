@@ -123,15 +123,15 @@ let achievementSound;
 
 // Ensure assets fully load before game starts
 function preload() {
-  //  sounds
+  // sounds
   buttonSound = loadSound("assets/click.wav");
   achievementSound = loadSound("assets/achievementSound.wav");
-  //  fonts
+  // fonts
   moneyCounterFont = loadFont('assets/BentonSansCond-Bold.ttf');
   gameTitleFont = loadFont('assets/MonomaniacOne-Regular.ttf');
   mediumFont = loadFont('assets/Geologica-Medium.ttf');
   regularFont = loadFont('assets/Geologica-Regular.ttf');
-  //  sprites
+  // sprites
   gameLogo = loadImage('assets/gameLogo.png');
   arrowKeys = loadImage('assets/arrowKeys.png');
   cursor = loadImage('assets/cursor.png');
