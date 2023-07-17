@@ -749,6 +749,7 @@ function upgradesScreen() {
   if (keyIsPressed && keyCode == 27) {
     gameState = 0;
   }
+}
 
   //-----------------------Setup-----------------------//
   function setup() {
