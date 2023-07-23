@@ -239,7 +239,7 @@ function otherText() {
   
   // show reset save data text / instructions
   textSize(gameTitleSize / 4);
-  text("Press q to delete all save data.", windowWidth / 6, windowHeight - 50);
+  text("Press q to delete all save data.", windowWidth / 7, windowHeight - 50);
 
   // mechanism to actually delete the saved data
   if (keyIsPressed && (key == "q" || key == "Q")) {
