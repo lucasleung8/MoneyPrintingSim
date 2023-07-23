@@ -236,6 +236,15 @@ function otherText() {
   text("©Lucas Leung 2023", windowWidth - 100, windowHeight - 20);
   textSize(gameTitleSize / 3);
   text("Achievements unlocked: " + unlockedAchievements.length + " out of " + numAchievements, windowWidth - 1050, windowHeight - 200);
+  
+  // show reset save data text / instructions
+  textSize(gameTitleSize / 4);
+  text("Press q to delete all save data.", windowWidth / 2, windowHeight - 50);
+
+  // mechanism to actually delete the saved data
+  if (keyIsPressed && (key == "q" || key == "Q")) {
+    // wipe save
+}
 }
 
 function playButton() {
