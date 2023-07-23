@@ -226,7 +226,7 @@ function gameTitle() {
   textSize(gameTitleSize);
   textFont(gameTitleFont);
   text("Money Printing Sim", gameTitlePosX, gameTitlePosY);
-  image(gameLogo, gameTitlePosX, gameTitlePosY - 90, gameTitleSize + 30, gameTitleSize + 30);
+  image(gameLogo, gameTitlePosX, gameTitlePosY / 2.26, gameTitleSize + 30, gameTitleSize + 30);
 }
 
 // Show additional text on the title screen
@@ -239,10 +239,10 @@ function otherText() {
   
   // show reset save data text / instructions
   textSize(gameTitleSize / 4);
-  text("Press q to delete all save data.", windowWidth / 7, windowHeight - 50);
+  text("Press d to delete all save data.", windowWidth / 7, windowHeight - 50);
 
   // mechanism to actually delete the saved data
-  if (keyIsPressed && (key == "q" || key == "Q")) {
+  if (keyIsPressed && (key == "d" || key == "D")) {
     // wipe save
 }
 }
@@ -761,7 +761,6 @@ function upgradesScreen() {
 
   //-----------------------Main Sketch-----------------------//
   function draw() {
-    print(millis());
     background(bgColor);
     achievementFunction();
 
