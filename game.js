@@ -711,6 +711,7 @@ function aboutScreen() {
   }
   textSize(24);
   text("Press Esc to return to title screen", 650, aboutTextPosY + 50);
+  print(aboutTextPosY);
 
   // Pressing Esc key returns to title screen
   if (keyIsPressed && keyCode == 27) {
