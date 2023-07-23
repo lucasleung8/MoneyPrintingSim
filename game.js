@@ -226,7 +226,7 @@ function gameTitle() {
   textSize(gameTitleSize);
   textFont(gameTitleFont);
   text("Money Printing Sim", gameTitlePosX, gameTitlePosY);
-  image(gameLogo, gameTitlePosX, gameTitlePosY / 2.26, gameTitleSize + 30, gameTitleSize + 30);
+  image(gameLogo, gameTitlePosX, gameTitlePosY / 2.2, gameTitleSize + 30, gameTitleSize + 30);
 }
 
 // Show additional text on the title screen
