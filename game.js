@@ -19,7 +19,7 @@ let printerMouseCollide = false;
 let storedMillis = 0;
 const autoSaveInterval = 10;
 const blackColor = 0;
-const aboutText = ["Lucas Leung", "June 16, 2023", "Mr. Arsenault", "ICS3U", "Sem. 2"];
+const aboutText = ["Lucas Leung", "June 16, 2023", "Mr. Arsenault", "ICS3U"];
 let gameTitleSize = (windowWidth + windowHeight) / 25;
 let gameTitlePosX = windowWidth / 2;
 let gameTitlePosY = windowHeight / 3.5;
@@ -107,8 +107,6 @@ let currentPrinter;
 let printer1;
 let printer2;
 let printer3;
-let arrowKeys;
-let cursor;
 let moneyIcon;
 let $5BankNote;
 let $10BankNote;
@@ -133,8 +131,6 @@ function preload() {
   regularFont = loadFont('assets/Geologica-Regular.ttf');
   // sprites
   gameLogo = loadImage('assets/gameLogo.png');
-  arrowKeys = loadImage('assets/arrowKeys.png');
-  cursor = loadImage('assets/cursor.png');
   moneyIcon = loadImage('assets/moneyStack.png');
   printer1 = loadImage('assets/printer.png');
   printer2 = loadImage('assets/printer2.png');
@@ -148,7 +144,7 @@ function preload() {
   upgradesIcon = loadImage('assets/gear.png');
 }
 
-// All unlockable achievements - format is num:name
+// All unlockable achievements - formatted num:name
 const achievements = {
   "1": "Thanks for playing", // play the game at least once
   "2": "Avid reader", // open the about screen
@@ -160,7 +156,7 @@ const achievements = {
 };
 const numAchievements = Object.keys(achievements).length;
 
-// All buyable upgrades - format is name:description
+// All buyable upgrades - formatted name:description
 const upgrades = {
   "Accurate sizing": "Banknotes are worth 3x more.",
   "Lighter paper": "Banknotes travel 2x faster.",
@@ -223,7 +219,7 @@ function achievementFunction() {
   }
 }
 
-// Game title/text & logo displayed on title screen
+// Game title/text & logo on title screen
 function gameTitle() {
   strokeWeight(0);
   fill(gameTitleColor);
@@ -233,16 +229,13 @@ function gameTitle() {
   image(gameLogo, gameTitlePosX, gameTitlePosY - 90, gameTitleSize + 30, gameTitleSize + 30);
 }
 
-// Show arrow key/enter menu controls in bottom left corner
-function titleScreenInstructions() {
-  noFill();
-  rect(gameTitlePosX / 7, gameTitlePosY * 3.2, arrowKeys.width / 3, arrowKeys.height / 7.5);
-  image(arrowKeys, gameTitlePosX / 4.2, gameTitlePosY * 3.2, arrowKeys.width / 12, arrowKeys.height / 12);
-  image(cursor, gameTitlePosX / 2.9, gameTitlePosY * 3.2, cursor.width / 11, cursor.height / 11);
+// Show additional text on the title screen
+function otherText() {
+  // show copyright & number of unlocked achievements
+  textSize(gameTitleSize / 4);
+  text("©Lucas Leung 2023", windowWidth - 100, windowHeight - 20);
   textSize(gameTitleSize / 3);
-  textFont(mediumFont);
-  fill(blackColor);
-  text("Select", gameTitlePosX / 11, gameTitlePosY * 3.2);
+  text("Achievements unlocked: " + unlockedAchievements.length + " out of " + numAchievements, windowWidth - 1050, windowHeight - 200);
 }
 
 function playButton() {
@@ -670,12 +663,7 @@ class achievementNotification {
 function titleScreen() {
   gameTitle();
   titleScreenButtons();
-  titleScreenInstructions();
-  // show copyright & number of unlocked achievements
-  textSize(gameTitleSize / 4);
-  text("©Lucas Leung 2023", windowWidth - 100, windowHeight - 20);
-  textSize(gameTitleSize / 3);
-  text("Achievements unlocked: " + unlockedAchievements.length + " out of " + numAchievements, windowWidth - 1050, windowHeight - 200);
+  otherText();
 
   // Clear all printer click text to ensure they don't remain when game is replayed
   for (let i = 0; i < clickTextList.length; i++) {
