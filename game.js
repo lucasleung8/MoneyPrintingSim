@@ -7,7 +7,7 @@
 // Get localStorage autosave working by following tutorial
 // Create upgrades screen and implement the upgrades
 
-//-----------------------Setup-----------------------//
+//-----------------------Setup Variables-----------------------//
 const bgColor = 235;
 const windowWidth = 1280;
 const windowHeight = 720;
