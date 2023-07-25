@@ -772,7 +772,6 @@ function setup() {
 //-----------------------Main Sketch-----------------------//
 function draw() {
   background(bgColor);
-  achievementFunction();
 
   // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
   if (gameState == 0) {
