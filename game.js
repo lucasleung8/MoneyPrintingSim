@@ -426,7 +426,7 @@ function moneyPerSecond() {
   fill(MpSColor);
   textSize(MpSSize);
   textFont(moneyCounterFont);
-  text(`Money per second: ${MpS}`, MpSPosX, MpSPosY);
+  text(`Money per second: $${MpS}`, MpSPosX, MpSPosY);
 }
 
 // In-game text displaying total amount of money earned
