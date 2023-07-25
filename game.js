@@ -247,7 +247,7 @@ function otherText() {
   textSize(gameTitleSize / 4);
   text("Press d to delete all save data.", windowWidth / 7, windowHeight - 50);
 
-  // mechanism to actually delete saved data
+  // delete saved data by pressing d
   if (keyIsPressed && (key == "d" || key == "D")) {
     money = 0;
     totalPrints = 0;
