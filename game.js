@@ -183,7 +183,7 @@ let unlockedUpgrades = [];
 
 
 // Save game progress to localStorage
-function save() {
+function saveGame() {
   storeItem('money', money);
   print("saved");
 }
@@ -695,7 +695,7 @@ function gameScreen() {
     gameState = 0;
     // Cheat: pressing j gives unlimited money
   } else if (keyIsPressed && (key == "j" || key == "J")) {
-    money += 9999999999999999999999999999999;
+    money += 99999999999999999999;
   }
 }
 
@@ -767,7 +767,7 @@ function setup() {
 
   // Auto saves game by executing the save() function at a certain amount of time
   // this just automates the save() function
-  setInterval(save, autoSaveInterval);
+  setInterval(saveGame, autoSaveInterval);
 }
 
 //-----------------------Main Sketch-----------------------//
