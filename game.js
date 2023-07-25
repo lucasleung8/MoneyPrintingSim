@@ -25,7 +25,7 @@ let gameTitlePosX = windowWidth / 2;
 let gameTitlePosY = windowHeight / 3.5;
 let gameTitleColor = 0;
 let moneyIncrease;
-let aboutTextPosY = windowHeight / 2
+const aboutTextPosY = windowHeight / 2
 
 // Title screen menu buttons
 let selectedTitleScreenButton = 0;
@@ -34,7 +34,7 @@ let titleScreenButtonsLocked = false;
 const titleScreenButtonMouseDist = 100;
 
 // Size/fade values for menu button animations
-let menuButtonFontSize = gameTitleSize / 2;
+const menuButtonFontSize = gameTitleSize / 2;
 const minTitleScreenButtonWidth = windowWidth / 7.5;
 const maxButtonWidth = minTitleScreenButtonWidth + minTitleScreenButtonWidth / 2.5;
 let playButtonWidth = minTitleScreenButtonWidth;
@@ -73,14 +73,14 @@ const clickTextSpeed = 3;
 
 // Main number during gameplay that shows total money
 let moneyCounterSize = 75;
-let moneyCounterPosX = windowWidth / 2;
-let moneyCounterPosY = windowHeight / 5;
+const moneyCounterPosX = windowWidth / 2;
+const moneyCounterPosY = windowHeight / 5;
 const moneyCounterColor = 0;
 
 // Money/second (MpS) text shown during gameplay
 let MpSSize = moneyCounterSize / 2.5;
-let MpSPosX = moneyCounterPosX;
-let MpSPosY = moneyCounterPosY + 60;
+const MpSPosX = moneyCounterPosX;
+const MpSPosY = moneyCounterPosY + 60;
 const MpSColor = 0;
 
 // Upgrades/statistics buttons shown during gameplay
