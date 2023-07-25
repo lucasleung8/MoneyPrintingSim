@@ -176,7 +176,7 @@ let moneyPerPrint = 1;
 let printDelay = 0;
 let bankNoteSpeed = 10;
 let totalPrints;
-let unlockedAchievements = [];
+let unlockedAchievements;
 let unlockedUpgrades = [];
 
 
@@ -186,7 +186,8 @@ let unlockedUpgrades = [];
 // Save game progress to localStorage
 function saveGame() {
   storeItem('money', money);
-  storeItem('totalPrints', totalPrints)
+  storeItem('totalPrints', totalPrints);
+  storeItem('unlockedAchievements', unlockedAchievements);
   print("saved");
 }
 
@@ -765,12 +766,17 @@ function setup() {
 
   money = getItem('money');
   totalPrints = getItem('totalPrints');
+  unlockedAchievements = getItem('unlockedAchievements');
   if (money == null) {
     money = 0;
   }
   if (totalPrints == null) {
     totalPrints = 0;
   }
+  if (unlockedAchievements == null) {
+    unlockedAchievements = [];
+  }
+
 
   // Auto saves game by executing the save() function at a certain amount of time
   // this just automates the saveGame() function
@@ -780,7 +786,7 @@ function setup() {
 //-----------------------Main Sketch-----------------------//
 function draw() {
   background(bgColor);
-  achievementFunction();  
+  achievementFunction();
   // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
   if (gameState == 0) {
     titleScreen();
