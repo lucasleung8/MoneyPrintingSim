@@ -767,7 +767,7 @@ function setup() {
   money = getItem('money');
   totalPrints = getItem('totalPrints');
   unlockedAchievements = getItem('unlockedAchievements');
-  // If no save data exists (i.e. its the first time playing), set them to a blank slate
+  // If no save data exists (i.e. its the first time playing), set them to the defaults
   if (money == null) {
     money = 0;
   }
