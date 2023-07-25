@@ -170,6 +170,7 @@ const upgrades = {
 };
 
 // Load save state, i.e. saved gameplay data from localStorage
+let money;
 let MpS = 0;
 let moneyPerPrint = 1;
 let printDelay = 0;
