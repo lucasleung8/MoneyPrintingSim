@@ -25,7 +25,7 @@ let gameTitlePosX = windowWidth / 2;
 let gameTitlePosY = windowHeight / 3.5;
 let gameTitleColor = 0;
 let moneyIncrease;
-const aboutTextPosY = windowHeight / 2
+let aboutTextPosY = windowHeight / 2;
 
 // Title screen menu buttons
 let selectedTitleScreenButton = 0;
