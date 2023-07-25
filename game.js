@@ -170,10 +170,6 @@ const upgrades = {
 };
 
 // Load save state, i.e. saved gameplay data from localStorage
-let money = getItem('money');
-if (money == null) {
-  money = 0;
-}
 let MpS = 0;
 let moneyPerPrint = 1;
 let printDelay = 0;
@@ -763,6 +759,11 @@ function setup() {
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
   stroke(255);
+
+  let money = getItem('money');
+  if (money == null) {
+    money = 0;
+  }
 
   // Auto saves game by executing the save() function at a certain amount of time
   // this just automates the save() function
