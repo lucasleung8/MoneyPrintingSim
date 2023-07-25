@@ -248,6 +248,8 @@ function otherText() {
 
   // mechanism to actually delete saved data
   if (keyIsPressed && (key == "d" || key == "D")) {
+    money = 0;
+    totalPrints = 0;
     clearStorage();
   }
 }
