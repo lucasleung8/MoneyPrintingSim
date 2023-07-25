@@ -115,7 +115,6 @@ let $50BankNote;
 let $100BankNote;
 let statsIcon;
 let upgradesIcon;
-// sounds
 let buttonSound;
 let achievementSound;
 
@@ -179,9 +178,7 @@ let totalPrints;
 let unlockedAchievements;
 let unlockedUpgrades = [];
 
-
 //-----------------------Custom Functions-----------------------//
-
 
 // Save game progress to localStorage
 function saveGame() {
