@@ -175,7 +175,7 @@ let MpS = 0;
 let moneyPerPrint = 1;
 let printDelay = 0;
 let bankNoteSpeed = 10;
-let totalPrints = 0;
+let totalPrints;
 let unlockedAchievements = [];
 let unlockedUpgrades = [];
 
@@ -186,6 +186,7 @@ let unlockedUpgrades = [];
 // Save game progress to localStorage
 function saveGame() {
   storeItem('money', money);
+  storeItem('totalPrints', totalPrints)
   print("saved");
 }
 
@@ -714,7 +715,6 @@ function aboutScreen() {
   }
   textSize(24);
   text("Press Esc to return to title screen", 650, aboutTextPosY + 50);
-  print(aboutTextPosY);
 
   // Pressing Esc key returns to title screen
   if (keyIsPressed && keyCode == 27) {
@@ -762,12 +762,16 @@ function setup() {
   stroke(255);
 
   money = getItem('money');
+  totalPrints = getItem('totalPrints');
   if (money == null) {
     money = 0;
   }
+  if (totalPrints == null) {
+    totalPrints = 0;
+  }
 
   // Auto saves game by executing the save() function at a certain amount of time
-  // this just automates the save() function
+  // this just automates the saveGame() function
   setInterval(saveGame, autoSaveInterval);
 }
 
