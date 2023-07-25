@@ -247,10 +247,11 @@ function otherText() {
   textSize(gameTitleSize / 4);
   text("Press d to delete all save data.", windowWidth / 7, windowHeight - 50);
 
-  // delete saved data by pressing d
+  // delete saved data by pressing d 
   if (keyIsPressed && (key == "d" || key == "D")) {
     money = 0;
     totalPrints = 0;
+    unlockedAchievements.length = 0;
     clearStorage();
   }
 }
@@ -683,9 +684,7 @@ function titleScreen() {
   otherText();
 
   // Clear all printer click text to ensure they don't remain when game is replayed
-  for (let i = 0; i < clickTextList.length; i++) {
-    clickTextList.splice(i, 1);
-  }
+  clickTextList.length = 0;
 }
 
 // Gameplay that stats when Play button is pressed from title screen
@@ -698,7 +697,7 @@ function gameScreen() {
   // Pressing Esc returns to title screen
   if (keyIsPressed && keyCode == 27) {
     gameState = 0;
-    // Cheat: pressing j gives unlimited money
+  // Cheat: pressing j gives unlimited money
   } else if (keyIsPressed && (key == "j" || key == "J")) {
     money += 99999999999999999999;
   }
@@ -764,9 +763,11 @@ function setup() {
   textAlign(CENTER, CENTER);
   stroke(255);
 
+  // Retrieve save from localStorage
   money = getItem('money');
   totalPrints = getItem('totalPrints');
   unlockedAchievements = getItem('unlockedAchievements');
+  // If no save data exists (i.e. its the first time playing), set them to a blank slate
   if (money == null) {
     money = 0;
   }
@@ -777,8 +778,7 @@ function setup() {
     unlockedAchievements = [];
   }
 
-
-  // Auto saves game by executing the save() function at a certain amount of time
+  // Auto saves game by executing the save() function constantly
   // this just automates the saveGame() function
   setInterval(saveGame, autoSaveInterval);
 }
