@@ -5,7 +5,7 @@
 
 //WIP:
 // Get localStorage autosave working by following tutorial
-// Create upgrades screen
+// Create upgrades screen and implement the upgrades
 
 //-----------------------Setup-----------------------//
 const bgColor = 235;
@@ -17,7 +17,7 @@ let achievementNotificationList = [];
 let gameState = 0;
 let printerMouseCollide = false;
 let storedMillis = 0;
-const autoSaveInterval = 10;
+const autoSaveInterval = 10000; // ms
 const blackColor = 0;
 const aboutText = ["Lucas Leung", "June 16, 2023", "Mr. Arsenault", "ICS3U"];
 let gameTitleSize = (windowWidth + windowHeight) / 25;
@@ -170,7 +170,10 @@ const upgrades = {
 };
 
 // Load save state, i.e. saved gameplay data from localStorage
-let money = 0;
+let money = getItem('money');
+if (money == null) {
+  money = 0;
+}
 let MpS = 0;
 let moneyPerPrint = 1;
 let printDelay = 0;
@@ -181,11 +184,15 @@ let unlockedUpgrades = [];
 
 
 //-----------------------Custom Functions-----------------------//
-// Auto save game progress to localStorage at a set frequency
-// WIP: Reddit post
-//
 
-//Determine when to unlock achievements and display them
+
+// Save game progress to localStorage
+function save() {
+  storeItem('money', money);
+  print("saved");
+}
+
+// Determine when to unlock achievements and display them
 function achievementFunction() {
   // move and display each notification popup box
   for (let i = 0; i < achievementNotificationList.length; i++) {
@@ -236,7 +243,7 @@ function otherText() {
   text("©Lucas Leung 2023", windowWidth - 100, windowHeight - 20);
   textSize(gameTitleSize / 3);
   text("Achievements unlocked: " + unlockedAchievements.length + " out of " + numAchievements, windowWidth / 5, windowHeight - 200);
-  
+
   // show reset save data text / instructions
   textSize(gameTitleSize / 4);
   text("Press d to delete all save data.", windowWidth / 7, windowHeight - 50);
@@ -244,7 +251,7 @@ function otherText() {
   // mechanism to actually delete the saved data
   if (keyIsPressed && (key == "d" || key == "D")) {
     // wipe save
-}
+  }
 }
 
 function playButton() {
@@ -686,7 +693,7 @@ function gameScreen() {
   moneyCounter();
   printer();
   gameplayButtons();
-  // autoSave();
+  //autoSave();
 
   // Pressing Esc returns to title screen
   if (keyIsPressed && keyCode == 27) {
@@ -749,59 +756,63 @@ function upgradesScreen() {
   }
 }
 
-  //-----------------------Setup-----------------------//
-  function setup() {
-    createCanvas(windowWidth, windowHeight);
-    background(bgColor);
-    imageMode(CENTER);
-    rectMode(CENTER);
-    textAlign(CENTER, CENTER);
-    stroke(255);
-  }
+//-----------------------Setup-----------------------//
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(bgColor);
+  imageMode(CENTER);
+  rectMode(CENTER);
+  textAlign(CENTER, CENTER);
+  stroke(255);
 
-  //-----------------------Main Sketch-----------------------//
-  function draw() {
-    background(bgColor);
-    achievementFunction();
+  // Auto saves game by executing the save() function at a certain amount of time
+  // this just automates the save() function
+  setInterval(save, autoSaveInterval);
+}
 
-    // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
-    if (gameState == 0) {
-      titleScreen();
-    } else if (gameState == 1) {
-      gameScreen();
-      //condition to unlock achievement 1
-      if (!(unlockedAchievements.includes(achievements["1"]))) {
-        achievementNotificationList.push(new achievementNotification(achievements["1"]));
-        unlockedAchievements.push(achievements["1"]);
-        achievementSound.play();
-      }
-    } else if (gameState == 2) {
-      aboutScreen();
-      //condition to unlock achievement 2
-      if (!(unlockedAchievements.includes(achievements["2"]))) {
-        achievementNotificationList.push(new achievementNotification(achievements["2"]));
-        unlockedAchievements.push(achievements["2"]);
-        achievementSound.play();
-      }
-    } else if (gameState == 3) {
-      remove();
-    } else if (gameState == 4) {
-      statsScreen();
-    } else if (gameState == 5) {
-      upgradesScreen();
+//-----------------------Main Sketch-----------------------//
+function draw() {
+  background(bgColor);
+  achievementFunction();
+
+  // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
+  if (gameState == 0) {
+    titleScreen();
+  } else if (gameState == 1) {
+    gameScreen();
+    //condition to unlock achievement 1
+    if (!(unlockedAchievements.includes(achievements["1"]))) {
+      achievementNotificationList.push(new achievementNotification(achievements["1"]));
+      unlockedAchievements.push(achievements["1"]);
+      achievementSound.play();
     }
-  }
-
-  // Print banknote when printer is left clicked
-  function mouseClicked() {
-    if (printerMouseCollide) {
-      printBankNote();
+  } else if (gameState == 2) {
+    aboutScreen();
+    //condition to unlock achievement 2
+    if (!(unlockedAchievements.includes(achievements["2"]))) {
+      achievementNotificationList.push(new achievementNotification(achievements["2"]));
+      unlockedAchievements.push(achievements["2"]);
+      achievementSound.play();
     }
+  } else if (gameState == 3) {
+    remove();
+  } else if (gameState == 4) {
+    statsScreen();
+  } else if (gameState == 5) {
+    upgradesScreen();
   }
+}
 
-  // Print banknote when spacebar pressed ingame
-  function keyReleased() {
-    if (gameState == 1 && keyCode == 32) {
-      printBankNote();
-    }
+// Print banknote when printer is left clicked
+function mouseClicked() {
+  if (printerMouseCollide) {
+    printBankNote();
   }
+}
+
+// Print banknote when spacebar pressed ingame
+function keyReleased() {
+  if (gameState == 1 && keyCode == 32) {
+    printBankNote();
+  }
+}
