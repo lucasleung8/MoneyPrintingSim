@@ -693,7 +693,6 @@ function gameScreen() {
   moneyCounter();
   printer();
   gameplayButtons();
-  //autoSave();
 
   // Pressing Esc returns to title screen
   if (keyIsPressed && keyCode == 27) {
