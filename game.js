@@ -761,7 +761,7 @@ function setup() {
   textAlign(CENTER, CENTER);
   stroke(255);
 
-  let money = getItem('money');
+  money = getItem('money');
   if (money == null) {
     money = 0;
   }
