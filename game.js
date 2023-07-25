@@ -193,7 +193,7 @@ function saveGame() {
 
 // Determine when to unlock achievements and display them
 function achievementFunction() {
-  // move and display each notification popup box
+  // move and display each notification popup
   for (let i = 0; i < achievementNotificationList.length; i++) {
     achievementNotificationList[i].display();
     achievementNotificationList[i].move();
