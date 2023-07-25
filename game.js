@@ -171,7 +171,7 @@ const upgrades = {
 
 // Load save state, i.e. saved gameplay data from localStorage
 let money;
-let MpS = 0;
+let MpS = 2;
 let moneyPerPrint = 1;
 let printDelay = 0;
 let bankNoteSpeed = 10;
@@ -780,7 +780,7 @@ function setup() {
 //-----------------------Main Sketch-----------------------//
 function draw() {
   background(bgColor);
-
+  print(achievementNotificationList);
   // Change game screen according to whatever menu option is chosen by player (play, about, exit, stats)
   if (gameState == 0) {
     titleScreen();
