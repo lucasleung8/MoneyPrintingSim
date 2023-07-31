@@ -179,7 +179,7 @@ let unlockedUpgrades = [];
 
 //-----------------------Custom Functions-----------------------//
 
-// Save game progress to localStorage
+// Save game progress to localStorage - key, value
 function saveGame() {
   storeItem('money', money);
   storeItem('totalPrints', totalPrints);
