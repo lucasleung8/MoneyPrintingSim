@@ -580,7 +580,7 @@ function gameplayButtons() {
 // Text showing money earned that pops up from the cursor when bank note reaches the top
 class clickText {
   constructor() {
-    this.posX = random(mouseX - 12, mouseX + 12);
+    this.posX = random(mouseX - windowWidth/100, mouseX + windowWidth/100);
     this.posY = mouseY;
     this.color = "green";
     this.size = (windowWidth + windowHeight) / 111;
@@ -706,7 +706,7 @@ function aboutScreen() {
   text("Money Printing Sim is my first ever attempt at creating a somewhat polished game. As I've always been drawn to games that involve calculations, data, stats, etc., I was inspired by incremental games the likes of Cookie Clicker and Clicker Heroes.", 650, 150, windowWidth, windowHeight);
   // loops through all text in the array and display them
   for (let i = 0; i < aboutText.length; i++) {
-    text(aboutText[i], 650, aboutTextPosY, windowWidth/1.07, windowHeight - 50);
+    text(aboutText[i], 650, aboutTextPosY, windowWidth / 1.04, windowHeight / 1.07);
     aboutTextPosY += 50;
   }
   textSize(24);
