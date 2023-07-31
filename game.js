@@ -42,11 +42,11 @@ let exitButtonWidth = minTitleScreenButtonWidth;
 let playButtonAlpha = 255;
 let aboutButtonAlpha = 255;
 let exitButtonAlpha = 255;
-const minTitleScreenButtonAlpha = 70;
+const minButtonAlpha = 70;
 const buttonWidthSpeed = 13;
 const buttonAlphaSpeed = 20;
 
-// Set height where printed bank note sprite is removed
+// Set height where printed bank note is removed
 const maxBankNoteHeight = 0;
 
 // Values for displaying printer sprite
@@ -89,9 +89,8 @@ let gameplayButtonFontSize = gameTitleSize / 3;
 const gameplayButtonMouseDist = 80;
 let upgradesButtonAlpha = 255;
 let statsButtonAlpha = 255;
-const minGameplayButtonAlpha = 70;
 
-// Values for displaying achievement notification popup
+// Values for displaying achievement popups
 const achievementFontSize = 24;
 const achievementSpeed = 10;
 const achievementDuration = 4000;
@@ -273,7 +272,7 @@ function playButton() {
     }
 
     // Show fade animation when Play button selected, increase alpha of other buttons
-    if (playButtonAlpha > minTitleScreenButtonAlpha) {
+    if (playButtonAlpha > minButtonAlpha) {
       playButtonAlpha -= buttonAlphaSpeed;
     }
     // Restore fade of all other buttons
@@ -307,7 +306,7 @@ function aboutButton() {
     }
 
     // Show fade animation when About button selected, increase alpha of all other buttons
-    if (aboutButtonAlpha > minTitleScreenButtonAlpha) {
+    if (aboutButtonAlpha > minButtonAlpha) {
       aboutButtonAlpha -= buttonAlphaSpeed;
     }
     if (playButtonAlpha < 255) {
@@ -340,7 +339,7 @@ function exitButton() {
     }
 
     // Show fade VFX when Exit button selected, increase alpha of all other buttons
-    if (exitButtonAlpha > minTitleScreenButtonAlpha) {
+    if (exitButtonAlpha > minButtonAlpha) {
       exitButtonAlpha -= buttonAlphaSpeed;
     }
     if (playButtonAlpha < 255) {
@@ -520,7 +519,7 @@ function statsButton() {
 }
 
 // Detect mouse collision with Upgrade button
-function mouseTouchingupgradesButton() {
+function mouseTouchingUpgradesButton() {
   return (dist(mouseX, mouseY, windowWidth / 1.06, windowHeight / 2) < gameplayButtonMouseDist);
 }
 
@@ -536,8 +535,8 @@ function gameplayButtons() {
   statsButton();
 
   // Hovering mouse over in-game menu buttons and left clicking chooses them
-  if (mouseTouchingupgradesButton()) {
-    selectedGameplayButton = "Upgrade";
+  if (mouseTouchingUpgradesButton()) {
+    selectedGameplayButton = "Upgrades";
     if (mouseIsPressed && mouseButton == LEFT) {
       gameState = 5;
       buttonSound.play();
@@ -551,15 +550,15 @@ function gameplayButtons() {
   }
 
   // Mouse hover fade animation for stats/upgrade, increases alpha of other buttons
-  if (selectedGameplayButton == "Upgrade") {
-    if (upgradesButtonAlpha > minGameplayButtonAlpha) {
+  if (selectedGameplayButton == "Upgrades") {
+    if (upgradesButtonAlpha > minButtonAlpha) {
       upgradesButtonAlpha -= buttonAlphaSpeed;
     }
     if (statsButtonAlpha < 255) {
       statsButtonAlpha += buttonAlphaSpeed;
     }
   } else if (selectedGameplayButton == "Stats") {
-    if (statsButtonAlpha > minGameplayButtonAlpha) {
+    if (statsButtonAlpha > minButtonAlpha) {
       statsButtonAlpha -= buttonAlphaSpeed;
     }
     if (upgradesButtonAlpha < 255) {
