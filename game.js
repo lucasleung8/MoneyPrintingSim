@@ -681,7 +681,7 @@ function titleScreen() {
   clickTextList.length = 0;
 }
 
-// Gameplay that stats when Play button is pressed from title screen
+// Actual gameplay that starts when Play is pressed
 function gameScreen() {
   moneyPerSecond();
   moneyCounter();
@@ -691,20 +691,20 @@ function gameScreen() {
   // Pressing Esc returns to title screen
   if (keyIsPressed && keyCode == 27) {
     gameState = 0;
-  // Cheat: pressing j gives unlimited money
+    // Cheat: pressing j gives unlimited money
   } else if (keyIsPressed && (key == "j" || key == "J")) {
     money += 99999999999999999999;
   }
 }
 
-// Shows extra info about the game when About is selected
+// Shows extra info about the game when About is pressed
 function aboutScreen() {
   strokeWeight(0);
   aboutTextPosY = windowHeight / 2;
   textSize(32);
   textFont(regularFont);
   text("Money Printing Sim is my first ever attempt at creating a somewhat polished game. As I've always been drawn to games that involve calculations, data, stats, etc., I was inspired by incremental games the likes of Cookie Clicker and Clicker Heroes.", 650, 150, windowWidth, windowHeight);
-  // loops through abouttext array and display on-screen
+  // loops through all text in the array and display them
   for (let i = 0; i < aboutText.length; i++) {
     text(aboutText[i], 650, aboutTextPosY, windowWidth - 50, windowHeight - 50);
     aboutTextPosY += 50;
@@ -718,7 +718,7 @@ function aboutScreen() {
   }
 }
 
-// Menu displaying gameplay statistics, appearing when Stats button is pressed
+// Menu displaying gameplay statistics which appears when Stats button is pressed
 function statsScreen() {
   textSize(32);
   textFont(regularFont);
@@ -730,7 +730,7 @@ function statsScreen() {
   textSize(24);
   text("Press r to return to game", 650, 700);
 
-  // Pressing r key returns to gameplay screen
+  // Pressing r returns to gameplay
   if (keyIsPressed && keyCode == 82) {
     gameState = 1;
   }
@@ -742,7 +742,7 @@ function upgradesScreen() {
   textFont(mediumFont);
   image(upgradesIcon, windowWidth / 2, 100, 150, 150);
   text("Money: $" + round(money, 5), windowWidth / 2, windowHeight / 3.5, windowWidth, windowHeight);
-  // Pressing Esc returns to title screen
+  // Pressing Esc returns to gameplay
   if (keyIsPressed && keyCode == 27) {
     gameState = 0;
   }
@@ -761,7 +761,7 @@ function setup() {
   money = getItem('money');
   totalPrints = getItem('totalPrints');
   unlockedAchievements = getItem('unlockedAchievements');
-  // If no save data exists (i.e. new player), set them to the defaults
+  // If no save data exists (i.e. new player), set it to these defaults
   if (money == null) {
     money = 0;
   }
@@ -786,7 +786,7 @@ function draw() {
     titleScreen();
   } else if (gameState == 1) {
     gameScreen();
-    //condition to unlock achievement 1
+    // condition to unlock achievement 1
     if (!(unlockedAchievements.includes(achievements["1"]))) {
       achievementNotificationList.push(new achievementNotification(achievements["1"]));
       unlockedAchievements.push(achievements["1"]);
@@ -794,7 +794,7 @@ function draw() {
     }
   } else if (gameState == 2) {
     aboutScreen();
-    //condition to unlock achievement 2
+    // condition to unlock achievement 2
     if (!(unlockedAchievements.includes(achievements["2"]))) {
       achievementNotificationList.push(new achievementNotification(achievements["2"]));
       unlockedAchievements.push(achievements["2"]);
