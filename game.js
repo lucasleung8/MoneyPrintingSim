@@ -763,7 +763,7 @@ function setup() {
   money = getItem('money');
   totalPrints = getItem('totalPrints');
   unlockedAchievements = getItem('unlockedAchievements');
-  // If no save data exists (i.e. its the first time playing), set them to the defaults
+  // If no save data exists (i.e. new player), set them to the defaults
   if (money == null) {
     money = 0;
   }
@@ -774,8 +774,7 @@ function setup() {
     unlockedAchievements = [];
   }
 
-  // Auto saves game by executing the save() function constantly
-  // this just automates the saveGame() function
+  // Auto saves game by executing the save() function constantly. this just automates the saveGame() function
   setInterval(saveGame, autoSaveInterval);
 }
 
