@@ -500,11 +500,11 @@ function printer() {
 // In-game upgrade button, WIP
 function upgradesButton() {
   fill(252, 140, 3, upgradesButtonAlpha);
-  rect(windowWidth / 1.06, windowHeight / 2, upgradesButtonWidth, windowHeight / 7, 15);
+  rect(windowWidth / 1.05, windowHeight / 2, upgradesButtonWidth, windowHeight / 7, 15);
   fill(blackColor);
   textSize(gameplayButtonFontSize);
   textFont(mediumFont);
-  text("Upgrades [U]", windowWidth / 1.06, windowHeight / 2);
+  text("Upgrades [U]", windowWidth / 1.05, windowHeight / 2);
 }
 
 // Draw in-game Stats button
