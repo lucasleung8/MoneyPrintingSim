@@ -497,7 +497,7 @@ function printer() {
   }
 }
 
-// In-game upgrade button, WIP
+// Draw in-game upgrade button, WIP
 function upgradesButton() {
   fill(252, 140, 3, upgradesButtonAlpha);
   rect(windowWidth / 1.05, windowHeight / 2, upgradesButtonWidth, windowHeight / 7, 15);
