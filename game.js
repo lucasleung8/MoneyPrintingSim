@@ -84,10 +84,10 @@ const MpSColor = 0;
 
 // Upgrades/statistics buttons shown during gameplay
 let statsButtonWidth = windowWidth / 7;
-let upgradeButtonsWidth = statsButtonWidth;
+let upgradesButtonWidth = statsButtonWidth;
 let gameplayButtonFontSize = gameTitleSize / 3;
 const gameplayButtonMouseDist = 80;
-let upgradeButtonsAlpha = 255;
+let upgradesButtonAlpha = 255;
 let statsButtonAlpha = 255;
 const minGameplayButtonAlpha = 70;
 
@@ -500,9 +500,9 @@ function printer() {
 }
 
 // In-game upgrade button, WIP
-function upgradeButtons() {
-  fill(252, 140, 3, upgradeButtonsAlpha);
-  rect(windowWidth / 1.06, windowHeight / 2, upgradeButtonsWidth, windowHeight / 7, 15);
+function upgradesButton() {
+  fill(252, 140, 3, upgradesButtonAlpha);
+  rect(windowWidth / 1.06, windowHeight / 2, upgradesButtonWidth, windowHeight / 7, 15);
   fill(blackColor);
   textSize(gameplayButtonFontSize);
   textFont(mediumFont);
@@ -520,7 +520,7 @@ function statsButton() {
 }
 
 // Detect mouse collision with Upgrade button
-function mouseTouchingupgradeButtons() {
+function mouseTouchingupgradesButton() {
   return (dist(mouseX, mouseY, windowWidth / 1.06, windowHeight / 2) < gameplayButtonMouseDist);
 }
 
@@ -532,11 +532,11 @@ function mouseTouchingStatsButton() {
 // Contains all buttons that appear in-game. Displays upgrade/stats buttons, animates them, change game states
 function gameplayButtons() {
   strokeWeight(3);
-  upgradeButtons();
+  upgradesButton();
   statsButton();
 
   // Hovering mouse over in-game menu buttons and left clicking chooses them
-  if (mouseTouchingupgradeButtons()) {
+  if (mouseTouchingupgradesButton()) {
     selectedGameplayButton = "Upgrade";
     if (mouseIsPressed && mouseButton == LEFT) {
       gameState = 5;
@@ -552,8 +552,8 @@ function gameplayButtons() {
 
   // Mouse hover fade animation for stats/upgrade, increases alpha of other buttons
   if (selectedGameplayButton == "Upgrade") {
-    if (upgradeButtonsAlpha > minGameplayButtonAlpha) {
-      upgradeButtonsAlpha -= buttonAlphaSpeed;
+    if (upgradesButtonAlpha > minGameplayButtonAlpha) {
+      upgradesButtonAlpha -= buttonAlphaSpeed;
     }
     if (statsButtonAlpha < 255) {
       statsButtonAlpha += buttonAlphaSpeed;
@@ -562,8 +562,8 @@ function gameplayButtons() {
     if (statsButtonAlpha > minGameplayButtonAlpha) {
       statsButtonAlpha -= buttonAlphaSpeed;
     }
-    if (upgradeButtonsAlpha < 255) {
-      upgradeButtonsAlpha += buttonAlphaSpeed;
+    if (upgradesButtonAlpha < 255) {
+      upgradesButtonAlpha += buttonAlphaSpeed;
     }
   }
 
