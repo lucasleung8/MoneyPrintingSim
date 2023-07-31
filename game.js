@@ -162,6 +162,7 @@ const upgrades = {
   "$50 bill": "Banknotes are worth $50 more.",
   "$100 bill": "Banknotes are worth $100 more.",
   "Achievement bonus": "You gain more MpS (money per second) the more achievements you have.",
+  "Printer firmware upgrade": "Pressing the spacebar also prints money.",
   "autoPrint.py": "Automatically print banknotes every 0.2s. You can still manually print."
 };
 
