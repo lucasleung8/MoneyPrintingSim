@@ -32,7 +32,6 @@ let selectedTitleScreenButton = 0;
 let selectedGameplayButton;
 let titleScreenButtonsLocked = false;
 const titleScreenButtonMouseDist = 100;
-
 // animations for title screen buttons
 const menuButtonFontSize = gameTitleSize / 2;
 const minTitleScreenButtonWidth = windowWidth / 7.5;
@@ -46,7 +45,7 @@ let exitButtonAlpha = 255;
 const minButtonAlpha = 70;
 const buttonWidthSpeed = 13;
 const buttonAlphaSpeed = 20;
-// Animations for upgrades/stats buttons shown during gameplay
+// animations for upgrades/stats buttons shown during gameplay
 const gameplayButtonMouseDist = 80;
 let statsButtonWidth = windowWidth / 7;
 let upgradesButtonWidth = statsButtonWidth;
