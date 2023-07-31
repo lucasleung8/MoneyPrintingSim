@@ -4,7 +4,6 @@
 // Date: 16 June 2023
 
 //WIP:
-// Get localStorage autosave working by following tutorial
 // Create upgrades screen and implement the upgrades
 
 //-----------------------Setup Variables-----------------------//
