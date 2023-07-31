@@ -26,13 +26,14 @@ let gameTitleColor = 0;
 let moneyIncrease;
 let aboutTextPosY = windowHeight / 2;
 
-// Title screen menu buttons
+// Values for all the menu buttons in the game
+// Title screen
 let selectedTitleScreenButton = 0;
 let selectedGameplayButton;
 let titleScreenButtonsLocked = false;
 const titleScreenButtonMouseDist = 100;
 
-// Size/fade values for menu button animations
+// animations for title screen buttons
 const menuButtonFontSize = gameTitleSize / 2;
 const minTitleScreenButtonWidth = windowWidth / 7.5;
 const maxButtonWidth = minTitleScreenButtonWidth + minTitleScreenButtonWidth / 2.5;
@@ -45,6 +46,13 @@ let exitButtonAlpha = 255;
 const minButtonAlpha = 70;
 const buttonWidthSpeed = 13;
 const buttonAlphaSpeed = 20;
+// Animations for upgrades/stats buttons shown during gameplay
+const gameplayButtonMouseDist = 80;
+let statsButtonWidth = windowWidth / 7;
+let upgradesButtonWidth = statsButtonWidth;
+let gameplayButtonFontSize = gameTitleSize / 3;
+let upgradesButtonAlpha = 255;
+let statsButtonAlpha = 255;
 
 // Set height where printed bank note is removed
 const maxBankNoteHeight = 0;
@@ -81,14 +89,6 @@ let MpSSize = moneyCounterSize / 2.5;
 const MpSPosX = moneyCounterPosX;
 const MpSPosY = moneyCounterPosY + 60;
 const MpSColor = 0;
-
-// Upgrades/statistics buttons shown during gameplay
-let statsButtonWidth = windowWidth / 7;
-let upgradesButtonWidth = statsButtonWidth;
-let gameplayButtonFontSize = gameTitleSize / 3;
-const gameplayButtonMouseDist = 80;
-let upgradesButtonAlpha = 255;
-let statsButtonAlpha = 255;
 
 // Values for displaying achievement popups
 const achievementFontSize = 24;
