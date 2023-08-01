@@ -93,6 +93,7 @@ const MpSColor = 0;
 const achievementFontSize = 24;
 const achievementSpeed = 10;
 const achievementDuration = 4000;
+const achievementColor = "#20242b";
 
 // Define variables used to store assets
 let moneyCounterFont;
@@ -227,7 +228,7 @@ function gameTitle() {
   textSize(gameTitleSize);
   textFont(gameTitleFont);
   text("Money Printing Sim", gameTitlePosX, gameTitlePosY);
-  image(gameLogo, gameTitlePosX, gameTitlePosY / 2.1, gameTitleSize + 30, gameTitleSize + 30);
+  image(gameLogo, gameTitlePosX, gameTitlePosY / 2.1, gameTitleSize + gameTitleSize / 2.6, gameTitleSize + gameTitleSize / 2.6);
 }
 
 // Show additional text on the title screen
@@ -581,7 +582,7 @@ function gameplayButtons() {
 // Text showing money earned that pops up from the cursor when bank note reaches the top
 class clickText {
   constructor() {
-    this.posX = random(mouseX - windowWidth/100, mouseX + windowWidth/100);
+    this.posX = random(mouseX - windowWidth / 100, mouseX + windowWidth / 100);
     this.posY = mouseY;
     this.color = "green";
     this.size = (windowWidth + windowHeight) / 111;
@@ -644,7 +645,7 @@ class achievementNotification {
   // Draw the popup box and show name of the unlocked achievement
   display() {
     strokeWeight(3);
-    fill(176, 191, 207);
+    fill(achievementColor);
     rect(this.posX, this.posY, this.width, this.height);
     fill(blackColor);
     strokeWeight(0);
