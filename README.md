@@ -10,7 +10,7 @@ Your goal is to make as much money as possible; along the way you will collect u
 
 Idea
 --------
-While being inspired to create an incremental/idle game, I decided to use similar concepts found in other popular games such as Cookie Clicker, Clicker Heroes, AdVenture Capitalist, Tap Titans, etc.
+While being inspired to create an incremental/idle game, I decided to use similar concepts found in other popular titles such as Cookie Clicker, Clicker Heroes, AdVenture Capitalist, Tap Titans, etc.
 
 How to Play
 -----
