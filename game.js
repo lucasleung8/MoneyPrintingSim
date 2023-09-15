@@ -93,7 +93,7 @@ const MpSColor = 0;
 const achievementFontSize = 24;
 const achievementSpeed = 10;
 const achievementDuration = 4000;
-const achievementColor = "#20242b";
+const achievementColor = "#cfe2f3";
 
 // Define variables used to store assets
 let moneyCounterFont;
