@@ -16,7 +16,7 @@ While being inspired to create an incremental/idle game, I decided to use simila
 
 How to Play
 -----
-Head to the GitHub pages link listed in the repo description (https://mrworldwide1.github.io/MoneyPrintingSim/), your progress autosaves every 10s to the browser's localstorage. Use the left mouse button or keyboard shortcuts as indicated. Purchase upgrades - not buildings - to maximize your earning potential!
+Head to the GitHub pages link listed in the repo description (https://mrworldwide1.github.io/MoneyPrintingSim/), your progress autosaves every 10s to the browser's localstorage. Use the left mouse button *or* keyboard shortcuts. Purchase upgrades - not buildings - to maximize your earning potential!
 
 <img src="https://github.com/mrworldwide1/MoneyPrintingSim/blob/main/Screenshot%20from%202023-09-16%2000-52-37.png?raw=true">
 
