@@ -778,7 +778,7 @@ function setup() {
   setInterval(saveGame, autoSaveInterval);
 }
 
-//-----------------------Main Sketch-----------------------//
+//-----------------------Main Sketch | MOST IMPORTANT PART-----------------------//
 function draw() {
   background(bgColor);
   achievementFunction();
