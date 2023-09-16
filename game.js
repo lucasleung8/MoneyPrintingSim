@@ -750,7 +750,7 @@ function upgradesScreen() {
   }
 }
 
-//-----------------------Main Sketch | MOST IMPORTANT PART-----------------------//
+//-----------------------Main Sketch, Core Code | MOST IMPORTANT PART-----------------------//
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(bgColor);
@@ -809,6 +809,8 @@ function draw() {
     upgradesScreen();
   }
 }
+
+//-----------------------Addtl. Mouse/Key inputs for Printer-----------------------//
 
 // Print banknote when printer is left clicked
 function mouseClicked() {
