@@ -750,7 +750,7 @@ function upgradesScreen() {
   }
 }
 
-//-----------------------Setup-----------------------//
+//-----------------------Main Sketch | MOST IMPORTANT PART-----------------------//
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(bgColor);
@@ -778,7 +778,6 @@ function setup() {
   setInterval(saveGame, autoSaveInterval);
 }
 
-//-----------------------Main Sketch | MOST IMPORTANT PART-----------------------//
 function draw() {
   background(bgColor);
   achievementFunction();
