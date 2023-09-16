@@ -18,7 +18,7 @@ Go to the GitHub pages link listed in the repo description (https://mrworldwide1
 
 Hints
 --------------
-If you are in need of money, press j to gain unlimited money
+If you are in need of money, press j to gain unlimited money.
 
 Credits
 --------------
