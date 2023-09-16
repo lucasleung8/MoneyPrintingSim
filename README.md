@@ -14,7 +14,7 @@ While being inspired to create an incremental/idle game, I decided to use simila
 
 How to Play
 -----
-Go to the GitHub pages link listed in the repo description (https://mrworldwide1.github.io/MoneyPrintingSim/), your progress autosaves every 10s to the browser's localstorage
+Head to the GitHub pages link listed in the repo description (https://mrworldwide1.github.io/MoneyPrintingSim/), your progress autosaves every 10s to the browser's localstorage.
 
 Hints
 --------------
