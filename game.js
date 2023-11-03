@@ -750,6 +750,20 @@ function upgradesScreen() {
   }
 }
 
+// Print banknote when printer is left clicked
+function mouseClicked() {
+  if (printerMouseCollide) {
+    printBankNote();
+  }
+}
+
+// Print banknote when spacebar pressed ingame
+function keyReleased() {
+  if (gameState == 1 && keyCode == 32) {
+    printBankNote();
+  }
+}
+
 //-----------------------Main Sketch, Core Code | MOST IMPORTANT PART-----------------------//
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -813,16 +827,16 @@ function draw() {
 
 //-----------------------Addtl. Mouse/Key inputs for Printer-----------------------//
 
-// Print banknote when printer is left clicked
-function mouseClicked() {
-  if (printerMouseCollide) {
-    printBankNote();
-  }
-}
+// // Print banknote when printer is left clicked
+// function mouseClicked() {
+//   if (printerMouseCollide) {
+//     printBankNote();
+//   }
+// }
 
-// Print banknote when spacebar pressed ingame
-function keyReleased() {
-  if (gameState == 1 && keyCode == 32) {
-    printBankNote();
-  }
-}
+// // Print banknote when spacebar pressed ingame
+// function keyReleased() {
+//   if (gameState == 1 && keyCode == 32) {
+//     printBankNote();
+//   }
+// }
