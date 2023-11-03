@@ -499,6 +499,21 @@ function printer() {
   }
 }
 
+
+// Print banknote when printer is left clicked
+function mouseClicked() {
+  if (printerMouseCollide) {
+    printBankNote();
+  }
+}
+
+// Print banknote when spacebar pressed ingame
+function keyReleased() {
+  if (gameState == 1 && keyCode == 32) {
+    printBankNote();
+  }
+}
+
 // Draw in-game upgrade button, WIP
 function upgradesButton() {
   fill(252, 140, 3, upgradesButtonAlpha);
@@ -576,6 +591,7 @@ function gameplayButtons() {
     buttonSound.play();
   }
 }
+
 
 //-----------------------Classes-----------------------//
 
@@ -671,6 +687,7 @@ class achievementNotification {
   }
 }
 
+
 //-----------------------Game States-----------------------//
 
 // Title screen that appears when game is first launched
@@ -750,19 +767,6 @@ function upgradesScreen() {
   }
 }
 
-// Print banknote when printer is left clicked
-function mouseClicked() {
-  if (printerMouseCollide) {
-    printBankNote();
-  }
-}
-
-// Print banknote when spacebar pressed ingame
-function keyReleased() {
-  if (gameState == 1 && keyCode == 32) {
-    printBankNote();
-  }
-}
 
 //-----------------------Main Sketch, Core Code | MOST IMPORTANT PART-----------------------//
 function setup() {
@@ -825,18 +829,3 @@ function draw() {
   }
 }
 
-//-----------------------Addtl. Mouse/Key inputs for Printer-----------------------//
-
-// // Print banknote when printer is left clicked
-// function mouseClicked() {
-//   if (printerMouseCollide) {
-//     printBankNote();
-//   }
-// }
-
-// // Print banknote when spacebar pressed ingame
-// function keyReleased() {
-//   if (gameState == 1 && keyCode == 32) {
-//     printBankNote();
-//   }
-// }
