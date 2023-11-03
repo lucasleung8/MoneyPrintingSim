@@ -6,7 +6,7 @@
 //WIP:
 // Create upgrades screen and implement the upgrades
 
-//-----------------------Setup Variables-----------------------//
+//-----------------------Define Variables-----------------------//
 const bgColor = 235;
 const windowWidth = 1280;
 const windowHeight = 720;
