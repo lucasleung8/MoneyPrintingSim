@@ -249,7 +249,6 @@ function otherText() {
     totalPrints = 0;
     unlockedAchievements.length = 0;
     clearStorage();
-    alert("Save data successfully deleted.")
   }
 }
 
