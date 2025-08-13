@@ -7,8 +7,7 @@
 <h1 align="center">Money Printing Sim</h1>
 
 <p align="center">
-Money Printing Sim is a work-in-progress incremental game written in p5.js. This was originally coded in a Python version of p5.js that our teacher provided for the Grade 11 Computer Science class. Having finished early, I am now porting it to real p5.js here as a personal project.
-Your goal is to make as much money as possible; along the way you will collect upgrades, earn achievements and more!</p>
+Money Printing Sim is a work-in-progress incremental game written in p5.js. This was originally coded for a Grade 11 Computer Science class. Your goal is to make as much money as possible; along the way you will collect upgrades, earn achievements and more!</p>
 
 Idea
 --------
