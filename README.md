@@ -7,7 +7,7 @@
 <h1 align="center">Money Printing Sim</h1>
 
 <p align="center">
-Money Printing Sim is a work-in-progress incremental game written in p5.js. This was originally coded for a Grade 11 Computer Science class. Your goal is to make as much money as possible; along the way you will collect upgrades, earn achievements and more!</p>
+Money Printing Sim is a work-in-progress incremental game written in p5.js. This was originally made for a Grade 11 Computer Science class. Your goal is to make as much money as possible; along the way you will collect upgrades, earn achievements and more!</p>
 
 Idea
 --------
@@ -21,7 +21,7 @@ Head to the GitHub pages link listed in the About repo description. Your progres
 
 Hints
 --------------
-If you are in need of money, press j to gain unlimited money.
+Press j to gain unlimited money.
 
 Credits
 --------------
